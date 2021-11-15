@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CompteRendu{% endblock %}
+
+{% block body %}
+    <h1>CompteRendu</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compte_rendu.id }}</td>
+            </tr>
+            <tr>
+                <th>NonCompteRendu</th>
+                <td>{{ compte_rendu.nonCompteRendu }}</td>
+            </tr>
+            <tr>
+                <th>DateLimite</th>
+                <td>{{ compte_rendu.dateLimite ? compte_rendu.dateLimite|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('compte_rendu_index') }}">back to list</a>
+
+    <a href="{{ path('compte_rendu_edit', {'id': compte_rendu.id}) }}">edit</a>
+
+    {{ include('compte_rendu/_delete_form.html.twig') }}
+{% endblock %}
