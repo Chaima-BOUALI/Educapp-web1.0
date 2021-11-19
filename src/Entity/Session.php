@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Session
  *
@@ -28,17 +28,13 @@ class Session
      */
     private $nomSession;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="start_sate", type="string", length=255, nullable=false)
-     */
-    private $startSate;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="end_date", type="date", nullable=false)
+     * @Assert\Date
+     * @var string A "Y-m-d" formatted value
      */
     private $endDate;
 
@@ -46,6 +42,8 @@ class Session
      * @var string
      *
      * @ORM\Column(name="description_session", type="text", length=0, nullable=false)
+     * @Assert\Date
+     * @var string A "Y-m-d" formatted value
      */
     private $descriptionSession;
 
@@ -60,6 +58,9 @@ class Session
      * @var string
      *
      * @ORM\Column(name="url_image", type="string", length=255, nullable=false)
+     * @Assert\Url(
+     *    message = "The url '{{ value }}' is not a valid url",
+     * )
      */
     private $urlImage;
 
@@ -140,5 +141,8 @@ class Session
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return(string)$this->getNomSession();
+    }
 }

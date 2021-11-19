@@ -1,36 +1,344 @@
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Candidat index{% endblock %}
+{% block title %}LISTE DES CANDIDATS{% endblock %}
+
+
+
+    {% block stylesheets %}
+
+
+        <!-- Custom fonts for this template -->
+        <link href="{{ asset('back-office/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{{ asset('back-office/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+        <!-- Custom styles for this page -->
+        <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+    {% endblock %}
+
+    {% block javascripts %}
+
+    {% endblock %}
 
 {% block body %}
-    <h1>Candidat index</h1>
+    <center>
+    <h1>LISTE DES CANDIDATS</h1>
+    </center>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NomCandidat</th>
-                <th>PrenomCandidat</th>
-                <th>EmailCandidat</th>
-                <th>NumeroTelephoneCandidat</th>
-                <th>Sexe</th>
-                <th>DateDeNaissance</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+
+    <table class="table-responsive">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+
+
+            <!-- DataTales Example -->
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">BASE DE DONNEES DES UTILISATEURS</h6>
+                </div>
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+
+                            <th>Id</th>
+                            <th>NomCandidat</th>
+                            <th>PrenomCandidat</th>
+                            <th>Email</th>
+                            <th>NumeroFormateur</th>
+                            <th>Sexe</th>
+                            <th>DateDeNaissance</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Boualy</td>
+                            <td>Chayma</td>
+                            <td>chayma.boualy@esprit.tn</td>
+                            <td>21387606</td>
+                            <td>Femme</td>
+                            <td>20/08/1998</td>
+
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('candidat_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        </div>
+
+        </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; EDUCAPP</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        </body>
         {% for candidat in candidats %}
             <tr>
                 <td>{{ candidat.id }}</td>
                 <td>{{ candidat.nomCandidat }}</td>
                 <td>{{ candidat.prenomCandidat }}</td>
-                <td>{{ candidat.emailCandidat }}</td>
-                <td>{{ candidat.numeroTelephoneCandidat }}</td>
+                <td>{{ candidat.email }}</td>
+                <td>{{ candidat.numeroCandidat }}</td>
                 <td>{{ candidat.sexe }}</td>
                 <td>{{ candidat.dateDeNaissance ? candidat.dateDeNaissance|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('candidat_show', {'id': candidat.id}) }}">show</a>
-                    <a href="{{ path('candidat_edit', {'id': candidat.id}) }}">edit</a>
+                    <button type="submit">
+                        <a href="{{ path('candidat_show', {'id': candidat.id}) }}">Afficher la liste des candidats </a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('candidat_edit', {'id': candidat.id}) }}">Modifier un candidat</a>
+                    </button>
                 </td>
             </tr>
         {% else %}
@@ -39,7 +347,51 @@
             </tr>
         {% endfor %}
         </tbody>
+
     </table>
 
-    <a href="{{ path('candidat_new') }}">Create new</a>
+    {% block Javascript %}
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/datatables-demo.js"></script>
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
 {% endblock %}
+

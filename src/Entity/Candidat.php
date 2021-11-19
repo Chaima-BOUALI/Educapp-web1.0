@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Candidat
@@ -23,7 +24,8 @@ class Candidat
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank
+*
      * @ORM\Column(name="nom_candidat", type="string", length=255, nullable=false)
      */
     private $nomCandidat;
@@ -45,6 +47,12 @@ class Candidat
     /**
      * @var string
      *
+      * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      * @ORM\Column(name="numero_telephone_candidat", type="string", length=255, nullable=false)
      */
     private $numeroTelephoneCandidat;
@@ -140,5 +148,8 @@ class Candidat
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return(string)$this->getNomCandidat();
+    }
 }

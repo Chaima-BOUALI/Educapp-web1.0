@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Publicity
  *
@@ -32,6 +32,7 @@ class Publicity
      * @var \DateTime
      *
      * @ORM\Column(name="start_date", type="date", nullable=false)
+     * @Assert\Date
      */
     private $startDate;
 
@@ -39,6 +40,7 @@ class Publicity
      * @var \DateTime
      *
      * @ORM\Column(name="end_date", type="date", nullable=false)
+     * @Assert\Date
      */
     private $endDate;
 
@@ -124,5 +126,8 @@ class Publicity
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return(string)$this->getNomPublicity();
+    }
 }
