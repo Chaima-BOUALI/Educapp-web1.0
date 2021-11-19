@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 /**
  * Participation
  *
@@ -30,14 +32,24 @@ class Participation
 
     /**
      * @var string
-     *
+     *@Assert\Length(
+     *      min = 10,
+     *      max = 50,
+     *      minMessage = "votre objet doit comporter au moins {{ limit }} characteres",
+     *      maxMessage = "vous avez atteint votre limite , {{ limit }} characteres"
+     * )
      * @ORM\Column(name="objet", type="string", length=255, nullable=false)
      */
     private $objet;
 
     /**
      * @var string
-     *
+     *@Assert\Length(
+     *      min = 100,
+     *      max = 500,
+     *      minMessage = "votre objet doit comporter au moins {{ limit }} characteres",
+     *      maxMessage = "vous avez atteint votre limite , {{ limit }} characteres"
+     * )
      * @ORM\Column(name="contenu_participation", type="text", length=0, nullable=false)
      */
     private $contenuParticipation;
@@ -105,5 +117,8 @@ class Participation
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return(string)$this->getNomParticipation();
+    }
 }

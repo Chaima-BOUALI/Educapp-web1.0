@@ -1,10 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Participation index{% endblock %}
+{% block title %}HISTORIQUE DES PARTICIPATIONS {% endblock %}
+ {% block stylesheets %}
+
+
+     <!-- Custom fonts for this template -->
+     <link href="{{ asset('back-office/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+     <!-- Custom styles for this template -->
+     <link href="{{ asset('back-office/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+     <!-- Custom styles for this page -->
+     <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+ {% endblock %}
 
 {% block body %}
-    <h1>Participation index</h1>
+    <h1>HISTORIQUE DES PARTICIPATIONS </h1>
 
+
+<table class="table-responsive">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+
+
+        <!-- DataTales Example -->
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">BASE DE DONNEES DES UTILISATEURS</h6>
+            </div>
+
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <table class="table">
         <thead>
             <tr>
@@ -15,7 +46,181 @@
                 <th>actions</th>
             </tr>
         </thead>
+
         <tbody>
+
+        <tr>
+            <td>01</td>
+            <td>PARTICIPATION01</td>
+            <td>SESSION PYTHON</td>
+            <td>Je veux participer à la session PYTHON </td>
+            <td> <form action="" method="post">
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Ajouter </a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Modifier</a>
+
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Supprimer</a>
+
+                    </button>
+                </form></td>
+
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>PARTICIPATION01</td>
+            <td>SESSION PYTHON</td>
+            <td>Je veux participer à la session PYTHON </td>
+            <td> <form action="" method="post">
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Ajouter </a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Modifier</a>
+
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Supprimer</a>
+
+                    </button>
+                </form></td>
+
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>PARTICIPATION01</td>
+            <td>SESSION PYTHON</td>
+            <td>Je veux participer à la session PYTHON </td>
+            <td> <form action="" method="post">
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Ajouter </a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Modifier</a>
+
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Supprimer</a>
+
+                    </button>
+                </form></td>
+
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>PARTICIPATION01</td>
+            <td>SESSION PYTHON</td>
+            <td>Je veux participer à la session PYTHON </td>
+            <td> <form action="" method="post">
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Ajouter </a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Modifier</a>
+
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Supprimer</a>
+
+                    </button>
+                </form></td>
+
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>PARTICIPATION01</td>
+            <td>SESSION PYTHON</td>
+            <td>Je veux participer à la session PYTHON </td>
+            <td> <form action="" method="post">
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Ajouter </a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Modifier</a>
+
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Supprimer</a>
+
+                    </button>
+                </form></td>
+
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>PARTICIPATION01</td>
+            <td>SESSION PYTHON</td>
+            <td>Je veux participer à la session PYTHON </td>
+            <td> <form action="" method="post">
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Ajouter </a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Modifier</a>
+
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Supprimer</a>
+
+                    </button>
+                </form></td>
+
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>PARTICIPATION01</td>
+            <td>SESSION PYTHON</td>
+            <td>Je veux participer à la session PYTHON </td>
+            <td> <form action="" method="post">
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Ajouter </a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Modifier</a>
+
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('participation_new') }}">Supprimer</a>
+
+                    </button>
+                </form></td>
+        </tbody>
+    </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; EDUCAPP</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+        </tr>
         {% for participation in participations %}
             <tr>
                 <td>{{ participation.id }}</td>
@@ -23,8 +228,14 @@
                 <td>{{ participation.objet }}</td>
                 <td>{{ participation.contenuParticipation }}</td>
                 <td>
-                    <a href="{{ path('participation_show', {'id': participation.id}) }}">show</a>
-                    <a href="{{ path('participation_edit', {'id': participation.id}) }}">edit</a>
+                    <button type="submit">
+
+                    <a href="{{ path('participation_show', {'id': participation.id}) }}">Afficher la liste des participations </a>
+                    </button>
+                    <button type="submit">
+
+                    <a href="{{ path('participation_edit', {'id': participation.id}) }}">Modifier votre participation </a>
+                    </button>
                 </td>
             </tr>
         {% else %}
@@ -34,6 +245,28 @@
         {% endfor %}
         </tbody>
     </table>
+    {% block javascripts %}
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <a href="{{ path('participation_new') }}">Create new</a>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+        </div>
+        </div>
+        </div>
+        </div>
+    {% endblock %}
 {% endblock %}
+
+

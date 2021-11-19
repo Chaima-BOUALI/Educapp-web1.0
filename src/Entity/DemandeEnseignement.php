@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 /**
  * DemandeEnseignement
  *
@@ -46,6 +48,9 @@ class DemandeEnseignement
      * @var string
      *
      * @ORM\Column(name="url_participation", type="string", length=255, nullable=false)
+     * @Assert\Url(
+     *    message = "The url '{{ value }}' is not a valid url",
+     * )
      */
     private $urlParticipation;
 
@@ -124,5 +129,8 @@ class DemandeEnseignement
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return(string)$this->getNomDemande();
+    }
 }

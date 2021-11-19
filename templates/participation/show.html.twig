@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-front.html.twig' %}
 
-{% block title %}Participation{% endblock %}
+{% block title %}AFFICHER L'HISTORIQUE DES PARTICIPATIONS{% endblock %}
 
 {% block body %}
-    <h1>Participation</h1>
+    <h1>Afficher l'historique des participations</h1>
 
     <table class="table">
         <tbody>
@@ -25,10 +25,13 @@
             </tr>
         </tbody>
     </table>
+<button type="submit">
 
-    <a href="{{ path('participation_index') }}">back to list</a>
+    <a href="{{ path('participation_index') }}">Afficher l'historique des participations</a>
+</button>
+<button type="submit">
 
-    <a href="{{ path('participation_edit', {'id': participation.id}) }}">edit</a>
-
+<a href="{{ path('participation_edit', {'id': participation.id}) }}">Modifier votre participation</a>
+</button>
     {{ include('participation/_delete_form.html.twig') }}
 {% endblock %}
