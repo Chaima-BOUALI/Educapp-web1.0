@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 /**
  * Session
  *
@@ -32,6 +34,8 @@ class Session
      * @var string
      *
      * @ORM\Column(name="start_sate", type="string", length=255, nullable=false)
+     *  @Assert\Date
+     * @var string A "Y-m-d" formatted value
      */
     private $startSate;
 
@@ -39,6 +43,8 @@ class Session
      * @var \DateTime
      *
      * @ORM\Column(name="end_date", type="date", nullable=false)
+     *  @Assert\Date
+     * @var string A "Y-m-d" formatted value
      */
     private $endDate;
 
@@ -60,8 +66,16 @@ class Session
      * @var string
      *
      * @ORM\Column(name="url_image", type="string", length=255, nullable=false)
+     * @Assert\Url(
+     *    message = "The url '{{ value }}' is not a valid url",
+     * )
      */
     private $urlImage;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $CategorieSession;
 
     public function getId(): ?int
     {
@@ -140,5 +154,20 @@ class Session
         return $this;
     }
 
+    public function getCategorieSession(): ?string
+    {
+        return $this->CategorieSession;
+    }
 
+    public function setCategorieSession(string $CategorieSession): self
+    {
+        $this->CategorieSession = $CategorieSession;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return(string)$this->getNomSession();
+    }
 }

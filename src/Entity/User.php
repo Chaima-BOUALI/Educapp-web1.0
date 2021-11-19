@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 /**
  * User
  *
@@ -23,7 +25,9 @@ class User
 
     /**
      * @var string
-     *
+     *@Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      * @ORM\Column(name="email", type="string", length=180, nullable=false)
      */
     private $email;
@@ -37,7 +41,9 @@ class User
 
     /**
      * @var string
-     *
+     *@SecurityAssert\UserPassword(
+     *     message = "Wrong value for your current password"
+     * )
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;

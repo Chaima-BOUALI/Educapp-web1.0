@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-front.html.twig' %}
 
-{% block title %}Edit Session{% endblock %}
+{% block title %}Modifier Session{% endblock %}
 
 {% block body %}
-    <h1>Edit Session</h1>
+    <h1>Modifier une Session</h1>
 
     {{ include('session/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('session_index') }}">back to list</a>
-
+<button type="submit">
+    <a href="{{ path('session_index') }}">Afficher la liste des Sessions</a>
+</button>
     {{ include('session/_delete_form.html.twig') }}
 {% endblock %}
