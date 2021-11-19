@@ -21,10 +21,11 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('compte_rendu_index') }}">back to list</a>
-
-    <a href="{{ path('compte_rendu_edit', {'id': compte_rendu.id}) }}">edit</a>
-
+    <button type="submit">
+    <a href="{{ path('compte_rendu_index') }}">Afficher la liste des comptes rendus</a>
+    </button>
+<button type="submit">
+    <a href="{{ path('compte_rendu_edit', {'id': compte_rendu.id}) }}">Modifier un compte rendu</a>
+</button>
     {{ include('compte_rendu/_delete_form.html.twig') }}
 {% endblock %}

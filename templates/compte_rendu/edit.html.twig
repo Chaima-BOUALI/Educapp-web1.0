@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-front.html.twig' %}
 
-{% block title %}Edit CompteRendu{% endblock %}
+{% block title %}Modifier un CompteRendu{% endblock %}
 
 {% block body %}
-    <h1>Edit CompteRendu</h1>
+    <h1>Modiffier votre compte rendu</h1>
 
     {{ include('compte_rendu/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('compte_rendu_index') }}">back to list</a>
-
+<button type="submit">
+    <a href="{{ path('compte_rendu_index') }}">Afficher la liste des comptes rendus</a>
+</button>
     {{ include('compte_rendu/_delete_form.html.twig') }}
 {% endblock %}

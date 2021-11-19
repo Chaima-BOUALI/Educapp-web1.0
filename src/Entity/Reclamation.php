@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 /**
  * Reclamation
@@ -37,13 +40,19 @@ class Reclamation
 
     /**
      * @var string
-     *
+     *@Assert\Length(
+     *      min = 50,
+     *      max = 500,
+
+     * )
      * @ORM\Column(name="contenu_reclamation", type="text", length=0, nullable=false)
      */
     private $contenuReclamation;
 
     /**
      * @var \DateTime
+     * @Assert\Date
+     * @var string A "Y-m-d" formatted value
      *
      * @ORM\Column(name="date_reclamation", type="date", nullable=false)
      */
@@ -124,5 +133,8 @@ class Reclamation
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return(string)$this->getNomReclamation();
+    }
 }

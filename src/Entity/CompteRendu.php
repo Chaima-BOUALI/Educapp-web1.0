@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 /**
  * CompteRendu
@@ -30,7 +33,8 @@ class CompteRendu
 
     /**
      * @var \DateTime
-     *
+     *@Assert\Date
+     * @var string A "Y-m-d" formatted value
      * @ORM\Column(name="date_limite", type="date", nullable=false)
      */
     private $dateLimite;
@@ -129,6 +133,9 @@ class CompteRendu
 
         return $this;
     }
-
+    public function __toString()
+    {
+        return(string)$this->getNonCompteRendu();
+    }
 
 }
