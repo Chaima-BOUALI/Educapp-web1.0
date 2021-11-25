@@ -7,6 +7,7 @@
 
     <table class="table">
         <tbody>
+<<<<<<< HEAD
         <tr>
             <th>Id</th>
             <td>{{ user.id }}</td>
@@ -23,6 +24,24 @@
             <th>Password</th>
             <td>{{ user.password }}</td>
         </tr>
+=======
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
         </tbody>
     </table>
 

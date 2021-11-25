@@ -7,6 +7,7 @@
 
     <table class="table">
         <tbody>
+<<<<<<< HEAD
         <tr>
             <th>Id</th>
             <td>{{ candidat.id }}</td>
@@ -43,5 +44,43 @@
     <button type="submit">
         <a href="{{ path('candidat_edit', {'id': candidat.id}) }}">Modifier</a>
     </button>
+=======
+            <tr>
+                <th>Id</th>
+                <td>{{ candidat.id }}</td>
+            </tr>
+            <tr>
+                <th>NomCandidat</th>
+                <td>{{ candidat.nomCandidat }}</td>
+            </tr>
+            <tr>
+                <th>PrenomCandidat</th>
+                <td>{{ candidat.prenomCandidat }}</td>
+            </tr>
+            <tr>
+                <th>EmailCandidat</th>
+                <td>{{ candidat.emailCandidat }}</td>
+            </tr>
+            <tr>
+                <th>NumeroTelephoneCandidat</th>
+                <td>{{ candidat.numeroTelephoneCandidat }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ candidat.sexe }}</td>
+            </tr>
+            <tr>
+                <th>DateDeNaissance</th>
+                <td>{{ candidat.dateDeNaissance ? candidat.dateDeNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+<button type="submit">
+    <a href="{{ path('candidat_index') }}">back to list</a>
+</button>
+<button type="submit">
+    <a href="{{ path('candidat_edit', {'id': candidat.id}) }}">edit</a>
+</button>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
     {{ include('candidat/_delete_form.html.twig') }}
 {% endblock %}

@@ -4,7 +4,10 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
 use PHPUnit\Util\Json;
+=======
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
@@ -30,12 +33,19 @@ class User implements UserInterface
      */
     private $email;
 
+<<<<<<< HEAD
     /** enum ('administrateur', 'formateur','candidat') **/
     /**
      * @ORM\Column(type="enum",nullable=false)
      * @Assert\EqualTo(propertyPath="enum")
      */
     private $roles;
+=======
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
 
     /**
      * @var string The hashed password
@@ -71,6 +81,7 @@ class User implements UserInterface
     }
 
     /**
+<<<<<<< HEAD
      * Get roles
      *
      * @return \enum
@@ -87,13 +98,30 @@ class User implements UserInterface
      * @return contact
      */
     public function setRoles(\enum $roles): contact
+=======
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
     {
         $this->roles = $roles;
 
         return $this;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
     /**
      * @see UserInterface
      */
@@ -128,7 +156,11 @@ class User implements UserInterface
 
     public function __toString()
     {
+<<<<<<< HEAD
         return (string)$this->getUsername();
+=======
+        return (string)$this->getPassword();
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
     }
 
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {% extends 'base.html.twig' %}
+=======
+{% extends 'base-front.html.twig' %}
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
 
 {% block title %}Nouveau Formateur{% endblock %}
 
@@ -6,8 +10,14 @@
     <h1>Ajouter un nouveau formateur</h1>
 
     {{ include('formateur/_form.html.twig') }}
+<<<<<<< HEAD
     <button type="submit">
         <a href="{{ path('formateur_index') }}">Consulter la liste des formateurs</a>
     </button>
+=======
+<button type="submit">
+    <a href="{{ path('formateur_index') }}">Consulter la liste des formateurs</a>
+</button>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
 
 {% endblock %}
