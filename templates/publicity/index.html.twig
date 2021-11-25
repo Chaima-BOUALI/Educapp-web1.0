@@ -1,0 +1,488 @@
+<<<<<<< HEAD
+{% extends 'base.html.twig' %}
+
+{% block title %}HISTORIQUE DES PUBLICITES {% endblock %}
+ {% block stylesheets %}
+
+
+     <!-- Custom fonts for this template -->
+     <link href="{{ asset('back-office/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+     <!-- Custom styles for this template -->
+     <link href="{{ asset('back-office/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+     <!-- Custom styles for this page -->
+     <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+ {% endblock %}
+{% block body %}
+
+    <h1>HISTORIQUE DES PUBLICITES</h1>
+
+    <table class="table-responsive">
+
+=======
+
+{% extends 'base.html.twig' %}
+
+{% block title %}HISTORIQUE DES PUBLICITES {% endblock %}
+
+
+
+    {% block stylesheets %}
+
+
+        <!-- Custom fonts for this template -->
+        <link href="{{ asset('back-office/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{{ asset('back-office/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+        <!-- Custom styles for this page -->
+        <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+    {% endblock %}
+
+    {% block javascripts %}
+
+    {% endblock %}
+
+{% block body %}
+<center>
+        <h1>HISTORIQUE DES PUBLICITES </h1>
+
+</center>
+    <table class="table-responsive">
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+
+
+            <!-- DataTales Example -->
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+<<<<<<< HEAD
+
+=======
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+                    <h6 class="m-0 font-weight-bold text-primary">BASE DE DONNEES DES PUBLICITES</h6>
+                </div>
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<<<<<<< HEAD
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>NomPublicity</th>
+                                <th>StartDate</th>
+                                <th>EndDate</th>
+                                <th>DescriptionPub</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+
+                            <tr>
+                                {% for publicity in publicities %}
+                            <tr>
+                                <td>{{ publicity.id }}</td>
+                                <td>{{ publicity.id }}</td>
+                                <td>{{ publicity.nomPublicity }}</td>
+                                <td>{{ publicity.startDate ? publicity.startDate|date('Y-m-d') : '' }}</td>
+                                <td>{{ publicity.endDate ? publicity.endDate|date('Y-m-d') : '' }}</td>
+                                <td>{{ publicity.descriptionPub }}</td>
+                                <td>
+                                    <button class="Add-Button" type="submit">
+
+                                        <a href="{{ path('publicity_show', {'id': publicity.id}) }}">Afficher</a>
+
+                                    </button>
+                                    <button class="Add-Button" type="submit">
+                                        <a href="{{ path('publicity_edit', {'id': publicity.id}) }}">Modifier</a>
+                                    </button>
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+                            <tr>
+                                <button class="A-Button" type="submit">
+                                    <a href="{{ path('publicity_new') }}">Ajouter une nouvelle publicité</a>
+                                </button>
+
+                            </tr>
+
+                            </tbody>
+
+                        </table></table></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- /.container-fluid -->
+
+
+=======
+                        <thead>
+                        <tr>
+
+                            <th>Id</th>
+                            <th>NomPublicity</th>
+                            <th>StartDate</th>
+                            <th>EndDate</th>
+                            <th>DescriptionPub</th>
+                            <th>actions</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>PUB1</td>
+                            <td>20/08/2012</td>
+                            <td>20/10/2012</td>
+                            <td>PUB ESPRIT </td>
+
+                            <td> <form action="" method="post">
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Ajouter </a>
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Modifier</a>
+
+                                    </button>
+                                    <button type="submit">
+                                        <a href="{{ path('publicity_new') }}">Supprimer</a>
+
+                                    </button>
+                                </form></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        </div>
+
+        </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+        </div>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; EDUCAPP</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+<<<<<<< HEAD
+
+        <!-- End of Content Wrapper -->
+
+
+        <!-- End of Page Wrapper -->
+
+        </tr>
+
+        </tbody>
+    </table>
+    {% block javascripts %}
+=======
+        </div>
+        <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        </body>
+        {% for publicity in publicities %}
+            <tr>
+                <td>{{ publicity.id }}</td>
+                <td>{{ publicity.nomPublicity }}</td>
+                <td>{{ publicity.startDate ? publicity.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ publicity.endDate ? publicity.endDate|date('Y-m-d') : '' }}</td>
+                <td>{{ publicity.descriptionPub }}</td>
+                <td>
+                    <button type="submit">
+                        <a href="{{ path('publicity_show', {'id': publicity.id}) }}">Afficher l'historique des publicités</a>
+                    </button>
+                    <button type="submit">
+                        <a href="{{ path('publicity_edit', {'id': publicity.id}) }}">Modifier les publicités</a>
+                    </button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+
+    {% block Javascript %}
+
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+<<<<<<< HEAD
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+        </div>
+        </div>
+        </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+=======
+        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/datatables-demo.js"></script>
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <button type="submit">
+        <a href="{{ path('publicity_new') }}">Ajouter une nouvelle publicité</a>
+    </button>
+    {% endblock %}
+{% endblock %}
+
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d

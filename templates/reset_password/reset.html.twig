@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+{% extends 'forgot-password.html' %}
+
+{% block title %}Changer Votre Mot de Passe{% endblock %}
+
+{% block body %}
+    <h1>Changer Votre Mot de passe pour plus de sécurité!</h1>
+
+    {{ form_start(resetForm) }}
+    {{ form_row(resetForm.plainPassword) }}
+    <button class="btn btn-primary">Changer votre mot de passe</button>
+=======
+{% extends 'front-base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <h1>Reset your password</h1>
+
+    {{ form_start(resetForm) }}
+    {{ form_row(resetForm.plainPassword) }}
+    <button class="btn btn-primary">Reset password</button>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+    {{ form_end(resetForm) }}
+{% endblock %}

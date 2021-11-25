@@ -1,0 +1,38 @@
+<<<<<<< HEAD
+{% extends 'forgot-password.html' %}
+=======
+{% extends 'front-base.html.twig' %}
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+
+{% block title %}Modifier Votre Mot de passe{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+<<<<<<< HEAD
+    <h1>Changer votre mot de passe </h1>
+=======
+    <h1>Reset your password</h1>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+
+    {{ form_start(requestForm) }}
+    {{ form_row(requestForm.email) }}
+    <div>
+        <small>
+<<<<<<< HEAD
+            Entrez votre adresse mail et vous aurez un link qui vous dérigera par la suite!
+        </small>
+    </div>
+
+    <button class="btn btn-primary">Envoyer un mail pour changer votre Mot de passe</button>
+=======
+            Enter your email address and we we will send you a
+            link to reset your password.
+        </small>
+    </div>
+
+    <button class="btn btn-primary">Send password reset email</button>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+    {{ form_end(requestForm) }}
+{% endblock %}

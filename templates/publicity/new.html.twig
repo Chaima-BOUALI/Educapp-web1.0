@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+{% extends 'base.html.twig' %}
+=======
+{% extends 'base-front.html.twig' %}
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+
+{% block title %}Ajouter une nouvelle publicité{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle publicité</h1>
+
+    {{ include('publicity/_form.html.twig') }}
+<<<<<<< HEAD
+    <button type="submit">
+        <a href="{{ path('publicity_index') }}">Afficher l'historique des publicités</a>
+    </button>
+=======
+<button type="submit">
+    <a href="{{ path('publicity_index') }}">Afficher l'historique des publicités</a>
+</button>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+{% endblock %}

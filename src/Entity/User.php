@@ -2,44 +2,55 @@
 
 namespace App\Entity;
 
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
+use PHPUnit\Util\Json;
+=======
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
+
 
 /**
- * User
- *
- * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_8D93D649E7927C74", columns={"email"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements UserInterface
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=180, nullable=false)
+     * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private $email;
 
+<<<<<<< HEAD
+    /** enum ('administrateur', 'formateur','candidat') **/
     /**
-     * @var array
-     *
-     * @ORM\Column(name="roles", type="json", nullable=false)
+     * @ORM\Column(type="enum",nullable=false)
+     * @Assert\EqualTo(propertyPath="enum")
      */
     private $roles;
+=======
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255, nullable=false)
-     */
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     **/
     private $password;
 
     public function getId(): ?int
@@ -59,18 +70,61 @@ class User
         return $this;
     }
 
-    public function getRoles(): ?array
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): ?string
+    {
+        return (string)$this->email;
+    }
+
+    /**
+<<<<<<< HEAD
+     * Get roles
+     *
+     * @return \enum
+     */
+    public function getRoles(): \enum
     {
         return $this->roles;
     }
 
+    /**
+     * Set roles
+     *
+     * @param \enum $roles
+     * @return contact
+     */
+    public function setRoles(\enum $roles): contact
+=======
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
     public function setRoles(array $roles): self
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
     {
         $this->roles = $roles;
 
         return $this;
     }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+    /**
+     * @see UserInterface
+     */
     public function getPassword(): ?string
     {
         return $this->password;
@@ -83,5 +137,33 @@ class User
         return $this;
     }
 
+    /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+    public function __toString()
+    {
+<<<<<<< HEAD
+        return (string)$this->getUsername();
+=======
+        return (string)$this->getPassword();
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+    }
+
+
 
 }
+

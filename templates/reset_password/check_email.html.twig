@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+{% extends 'forgot-password.html' %}
+
+{% block title %}Le Mail de confirmation a été envoyé avec succès{% endblock %}
+
+{% block body %}
+    <p>An email has been sent that contains a link that you can click to reset your password. This link will expire in {{ tokenLifetime|date('g') }} hour(s).</p>
+    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+=======
+{% extends 'front-base.html.twig' %}
+
+{% block title %}Password Reset Email Sent{% endblock %}
+
+{% block body %}
+<p>An email has been sent that contains a link that you can click to reset your password. This link will expire in {{ tokenLifetime|date('g') }} hour(s).</p>
+<p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+{% endblock %}

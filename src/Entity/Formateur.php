@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Formateur
  *
@@ -39,6 +39,9 @@ class Formateur
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     *  @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private $email;
 
@@ -60,6 +63,7 @@ class Formateur
      * @var \DateTime
      *
      * @ORM\Column(name="date_de_naissance", type="date", nullable=false)
+     *
      */
     private $dateDeNaissance;
 
@@ -139,6 +143,9 @@ class Formateur
 
         return $this;
     }
-
+    public function __toString()
+    {
+        return(string)$this->getNomFormateur();
+    }
 
 }

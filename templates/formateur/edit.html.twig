@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+{% extends 'base.html.twig' %}
+=======
+{% extends 'base-front.html.twig' %}
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+
+{% block title %}Modifier un formateur{% endblock %}
+
+{% block body %}
+    <h1>Modifier un fomateur</h1>
+
+    {{ include('formateur/_form.html.twig', {'button_label': 'Update'}) }}
+<<<<<<< HEAD
+    <button type="submit">
+        <a href="{{ path('formateur_index') }}">back to list</a>
+    </button>
+    >
+=======
+<button type="submit">
+    <a href="{{ path('formateur_index') }}">back to list</a>
+</button>
+>
+>>>>>>> a7c45923a7d8dc09346915264934b22b0081650d
+    {{ include('formateur/_delete_form.html.twig') }}
+{% endblock %}
