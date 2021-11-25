@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une nouvelle publicité{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle publicité</h1>
+
+    {{ include('publicity/_form.html.twig') }}
+    <button type="submit">
+        <a href="{{ path('publicity_index') }}">Afficher l'historique des publicités</a>
+    </button>
+{% endblock %}

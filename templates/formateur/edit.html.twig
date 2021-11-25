@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un formateur{% endblock %}
+
+{% block body %}
+    <h1>Modifier un fomateur</h1>
+
+    {{ include('formateur/_form.html.twig', {'button_label': 'Update'}) }}
+    <button type="submit">
+        <a href="{{ path('formateur_index') }}">back to list</a>
+    </button>
+    >
+    {{ include('formateur/_delete_form.html.twig') }}
+{% endblock %}

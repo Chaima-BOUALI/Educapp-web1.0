@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historique des publicité {% endblock %}
+
+{% block body %}
+    <h1>Publicity</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ publicity.id }}</td>
+        </tr>
+        <tr>
+            <th>NomPublicity</th>
+            <td>{{ publicity.nomPublicity }}</td>
+        </tr>
+        <tr>
+            <th>StartDate</th>
+            <td>{{ publicity.startDate ? publicity.startDate|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>EndDate</th>
+            <td>{{ publicity.endDate ? publicity.endDate|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>DescriptionPub</th>
+            <td>{{ publicity.descriptionPub }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">
+        <a href="{{ path('publicity_index') }}">Afficher l'historique des publicités </a>
+    </button>
+    <button type="submit">
+        <a href="{{ path('publicity_edit', {'id': publicity.id}) }}">Modifier une publicité</a>
+    </button>
+    {{ include('publicity/_delete_form.html.twig') }}
+{% endblock %}
