@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Nouveau Candidat{% endblock %}
+
+{% block body %}
+    <center>
+    <h1>Ajouter un candidat</h1>
+
+    {{ include('candidat/_form.html.twig') }}
+    <button class="btn-outline-primary" type="submit">
+        <a href="{{ path('candidat_index') }}">Afficher la liste des candidats</a>
+    </button>
+    </center>
+{% endblock %}

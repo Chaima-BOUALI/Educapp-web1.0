@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Publicity{% endblock %}
+
+{% block body %}
+    <h1>Modifier une publicité</h1>
+
+    {{ include('publicity/_form.html.twig', {'button_label': 'Update'}) }}
+    <button class="btn-dark" type="submit">
+        <a href="{{ path('publicity_index') }}">Retour à la liste</a>
+    </button>
+
+    {{ include('publicity/_delete_form.html.twig') }}
+{% endblock %}

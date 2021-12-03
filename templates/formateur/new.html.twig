@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Formateur{% endblock %}
+
+{% block body %}
+    <center>
+    <h1>Ajouter un nouveau Formateur</h1>
+
+    {{ include('formateur/_form.html.twig') }}
+    <button class="btn-outline-primary" type="submit">
+        <a href="{{ path('formateur_index') }}">Afficher la liste des formateurs</a>
+    </button>
+    </center>
+
+{% endblock %}

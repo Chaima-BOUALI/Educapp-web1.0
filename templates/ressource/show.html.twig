@@ -1,0 +1,32 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Afficher toutes les ressources {% endblock %}
+
+{% block body %}
+    <h1>Ressource</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ressource.id }}</td>
+            </tr>
+            <tr>
+                <th>NomRessource</th>
+                <td>{{ ressource.nomRessource }}</td>
+            </tr>
+            <tr>
+                <th>UrlRessource</th>
+                <td>{{ ressource.urlRessource }}</td>
+            </tr>
+        </tbody>
+    </table>
+<button type="submit">
+    <a href="{{ path('ressource_index') }}">Afficher la liste des ressources</a>
+</button>
+<button type="submit">
+
+    <a href="{{ path('ressource_edit', {'id': ressource.id}) }}">Modifier les ressources déposées</a>
+</button>
+    {{ include('ressource/_delete_form.html.twig') }}
+{% endblock %}
