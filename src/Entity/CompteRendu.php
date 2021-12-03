@@ -32,10 +32,9 @@ class CompteRendu
     private $nonCompteRendu;
 
     /**
+     *
      * @var \DateTime
-     *@Assert\Date
-     * @var string A "Y-m-d" formatted value
-     * @ORM\Column(name="date_limite", type="date", nullable=false)
+     * @ORM\Column(name="date_limite", type="date", nullable=true)
      */
     private $dateLimite;
 
@@ -48,7 +47,15 @@ class CompteRendu
      * })
      */
     private $session;
-
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
     /**
      * @var \Candidat
      *
@@ -59,15 +66,8 @@ class CompteRendu
      */
     private $candidat;
 
-    /**
-     * @var \User
-     *
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * })
-     */
-    private $user;
+
+
 
     public function getId(): ?int
     {
@@ -91,7 +91,7 @@ class CompteRendu
         return $this->dateLimite;
     }
 
-    public function setDateLimite(\DateTimeInterface $dateLimite): self
+    public function setDateLimite(?\DateTimeInterface $dateLimite): self
     {
         $this->dateLimite = $dateLimite;
 
@@ -122,6 +122,11 @@ class CompteRendu
         return $this;
     }
 
+
+    public function __toString()
+    {
+        return(string)$this->getNonCompteRendu();
+    }
     public function getUser(): ?User
     {
         return $this->user;
@@ -132,10 +137,6 @@ class CompteRendu
         $this->user = $user;
 
         return $this;
-    }
-    public function __toString()
-    {
-        return(string)$this->getNonCompteRendu();
     }
 
 }

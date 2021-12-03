@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New DemandeEnseignement{% endblock %}
+
+{% block body %}
+    <h1>Create new DemandeEnseignement</h1>
+
+    {{ include('demande_enseignement/_form.html.twig') }}
+
+    <a href="{{ path('demande_enseignement_index') }}">back to list</a>
+{% endblock %}

@@ -45,16 +45,16 @@ class Reclamation
      *      max = 500,
 
      * )
-     * @ORM\Column(name="contenu_reclamation", type="text", length=0, nullable=false)
+     * @ORM\Column(name="contenu_reclamation", type="text", length=0, nullable=true)
      */
     private $contenuReclamation;
 
     /**
      * @var \DateTime
-     * @Assert\Date
-     * @var string A "Y-m-d" formatted value
      *
-     * @ORM\Column(name="date_reclamation", type="date", nullable=false)
+     *
+     *
+     * @ORM\Column(name="date_reclamation", type="date", nullable=true)
      */
     private $dateReclamation;
 
@@ -67,6 +67,11 @@ class Reclamation
      * })
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
 
     public function getId(): ?int
     {
@@ -136,5 +141,17 @@ class Reclamation
     public function __toString()
     {
         return(string)$this->getNomReclamation();
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }

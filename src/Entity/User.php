@@ -24,21 +24,21 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=180, nullable=false)
+     * @ORM\Column(name="email", type="string", length=180, nullable=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="roles", type="text", length=0, nullable=false)
+     * @ORM\Column(name="roles", type="text", length=0, nullable=true)
      */
     private $roles;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     * @ORM\Column(name="password", type="string", length=255, nullable=true)
      */
     private $password;
 
@@ -82,6 +82,9 @@ class User
 
         return $this;
     }
-
+    public function __toString()
+    {
+        return(string)$this->getIdUser();
+    }
 
 }

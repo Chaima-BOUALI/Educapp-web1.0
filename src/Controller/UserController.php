@@ -23,7 +23,7 @@ class UserController extends AbstractController
             ->getRepository(User::class)
             ->findAll();
 
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/home.html.twig', [
             'users' => $users,
         ]);
     }

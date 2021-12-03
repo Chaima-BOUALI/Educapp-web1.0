@@ -94,4 +94,18 @@ class ReclamationController extends AbstractController
 
         return $this->redirectToRoute('reclamation_index', [], Response::HTTP_SEE_OTHER);
     }
+    /**
+     * @Route("/rec/acc", name="rec_acc")
+     */
+    public function acc(): Response
+    {
+        $reclamations = $this->getDoctrine()
+            ->getRepository(Reclamation::class)
+            ->findAll();
+
+        return $this->render('reclamation/acc.html.twig', [
+            'reclamations' => $reclamations,
+        ]);
+    }
+
 }

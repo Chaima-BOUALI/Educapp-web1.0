@@ -94,4 +94,21 @@ class CompteRenduController extends AbstractController
 
         return $this->redirectToRoute('compte_rendu_index', [], Response::HTTP_SEE_OTHER);
     }
+/**
+* @Route("/moyenne_CR", name="compte_rendu_moyenne")
+*/
+    function cacul_moyennecompterendu($nombre,$total,$pourcentage)
+    {
+        $candidats = $this->getDoctrine()
+            ->getRepository(Candidat::class)
+            ->cacul_moyenneage();
+        $nombre_CR = "SELECT * FROM compte_rendu where compte_rendu.date_limite < 2021-12-31";
+        $total_CR = "SELECT * FROM compte_rendu";
+        $valeur_p = 100;
+        echo cacul_moyenneage($nombre_CR, $total_CR, $valeur_p) . " %";
+        $resultat = ($nombre / $total) * $pourcentage;
+
+        return $this->render('compte_rendu/index.html.twig', ['resultat'=> $resultat]);
+
+    }
 }

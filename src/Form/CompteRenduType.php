@@ -16,7 +16,7 @@ class CompteRenduType extends AbstractType
             ->add('dateLimite')
             ->add('session')
             ->add('candidat')
-            ->add('user')
+
         ;
     }
 

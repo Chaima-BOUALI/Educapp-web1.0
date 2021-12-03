@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DemandeEnseignement{% endblock %}
+
+{% block body %}
+    <h1>DemandeEnseignement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ demande_enseignement.id }}</td>
+            </tr>
+            <tr>
+                <th>NomDemande</th>
+                <td>{{ demande_enseignement.nomDemande }}</td>
+            </tr>
+            <tr>
+                <th>DescriptionDemande</th>
+                <td>{{ demande_enseignement.descriptionDemande }}</td>
+            </tr>
+            <tr>
+                <th>Decision</th>
+                <td>{{ demande_enseignement.decision ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>UrlParticipation</th>
+                <td>{{ demande_enseignement.urlParticipation }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ demande_enseignement.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('demande_enseignement_index') }}">back to list</a>
+
+    <a href="{{ path('demande_enseignement_edit', {'id': demande_enseignement.id}) }}">edit</a>
+
+    {{ include('demande_enseignement/_delete_form.html.twig') }}
+{% endblock %}
