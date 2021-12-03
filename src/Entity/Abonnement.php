@@ -25,16 +25,18 @@ class Abonnement
 
     /**
      * @var string
+     ** @Assert\Length(
+     *      min = 2,
+     *      max = 8,
      *
+     * )
      * @ORM\Column(name="type_abonnement", type="string", length=255, nullable=false)
      */
     private $typeAbonnement;
 
     /**
      * @var \DateTime
-     * @Assert\Date
-     * @var string A "Y-m-d" formatted value
-     * @ORM\Column(name="date_abonnement", type="date", nullable=false)
+     * @ORM\Column(name="date_abonnement", type="date", nullable=true)
      */
     private $dateAbonnement;
 
@@ -57,6 +59,11 @@ class Abonnement
      * })
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
 
     public function getId(): ?int
     {
@@ -113,6 +120,18 @@ class Abonnement
     public function __toString()
     {
         return(string)$this->getTypeAbonnement();
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 
 

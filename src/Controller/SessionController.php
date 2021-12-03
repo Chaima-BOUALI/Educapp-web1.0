@@ -94,4 +94,21 @@ class SessionController extends AbstractController
 
         return $this->redirectToRoute('session_index', [], Response::HTTP_SEE_OTHER);
     }
+/**
+* @Route("/interet", name="session_interet")
+*/
+    function interet($nombre,$total,$pourcentage)
+    {
+        $candidats = $this->getDoctrine()
+            ->getRepository(Session::class)
+            ->interet();
+        $nombre_session = "SELECT * FROM session ";
+        $total_candidat = "SELECT * FROM candidat";
+        $valeur_p = 100;
+        echo cacul_moyenneage($nombre_session, $total_candidat, $valeur_p) . " %";
+        $resultat = ($nombre / $total) * $pourcentage;
+
+        return $this->render('session/index.html.twig', ['resultat'=> $resultat]);
+
+    }
 }

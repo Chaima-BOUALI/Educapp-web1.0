@@ -16,8 +16,8 @@
                 <td>{{ session.nomSession }}</td>
             </tr>
             <tr>
-                <th>StartSate</th>
-                <td>{{ session.startSate }}</td>
+                <th>StartDate</th>
+                <td>{{ session.startDate ? session.startDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
                 <th>EndDate</th>

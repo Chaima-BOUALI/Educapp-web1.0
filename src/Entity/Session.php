@@ -31,49 +31,50 @@ class Session
     private $nomSession;
 
     /**
-     * @var string
+
      *
-     * @ORM\Column(name="start_sate", type="string", length=255, nullable=false)
-     *  @Assert\Date
-     * @var string A "Y-m-d" formatted value
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_date", type="date", nullable=true)
      */
-    private $startSate;
+    private $startDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="end_date", type="date", nullable=false)
-     *  @Assert\Date
-     * @var string A "Y-m-d" formatted value
+     *
+     *
+     * @ORM\Column(name="end_date", type="date", nullable=true)
      */
     private $endDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description_session", type="text", length=0, nullable=false)
+     * @ORM\Column(name="description_session", type="text", nullable=true)
      */
     private $descriptionSession;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="places_disponibles", type="integer", nullable=false)
+     * @ORM\Column(name="places_disponibles", type="integer", nullable=true)
      */
     private $placesDisponibles;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url_image", type="string", length=255, nullable=false)
+     *
      * @Assert\Url(
      *    message = "The url '{{ value }}' is not a valid url",
      * )
+     * @ORM\Column(name="url_image", type="string", length=255, nullable=true)
      */
     private $urlImage;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $CategorieSession;
 
@@ -94,18 +95,17 @@ class Session
         return $this;
     }
 
-    public function getStartSate(): ?string
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->startSate;
+        return $this->startDate;
     }
 
-    public function setStartSate(string $startSate): self
+    public function setStartDate(\DateTimeInterface $startDate): self
     {
-        $this->startSate = $startSate;
+        $this->startDate = $startDate;
 
         return $this;
     }
-
     public function getEndDate(): ?\DateTimeInterface
     {
         return $this->endDate;
@@ -170,4 +170,5 @@ class Session
     {
         return(string)$this->getNomSession();
     }
+
 }

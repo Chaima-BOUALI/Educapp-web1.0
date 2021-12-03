@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DemandeEnseignement index{% endblock %}
+
+{% block body %}
+    <h1>DemandeEnseignement index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomDemande</th>
+                <th>DescriptionDemande</th>
+                <th>Decision</th>
+                <th>UrlParticipation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demande_enseignement in demande_enseignements %}
+            <tr>
+                <td>{{ demande_enseignement.id }}</td>
+                <td>{{ demande_enseignement.nomDemande }}</td>
+                <td>{{ demande_enseignement.descriptionDemande }}</td>
+                <td>{{ demande_enseignement.decision ? 'Yes' : 'No' }}</td>
+                <td>{{ demande_enseignement.urlParticipation }}</td>
+                <td>
+                    <a href="{{ path('demande_enseignement_show', {'id': demande_enseignement.id}) }}">show</a>
+                    <a href="{{ path('demande_enseignement_edit', {'id': demande_enseignement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('demande_enseignement_new') }}">Create new</a>
+{% endblock %}

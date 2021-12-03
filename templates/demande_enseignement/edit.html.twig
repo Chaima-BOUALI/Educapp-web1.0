@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit DemandeEnseignement{% endblock %}
+
+{% block body %}
+    <h1>Edit DemandeEnseignement</h1>
+
+    {{ include('demande_enseignement/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('demande_enseignement_index') }}">back to list</a>
+
+    {{ include('demande_enseignement/_delete_form.html.twig') }}
+{% endblock %}

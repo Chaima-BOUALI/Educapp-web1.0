@@ -13,7 +13,7 @@ class SessionType extends AbstractType
     {
         $builder
             ->add('nomSession')
-            ->add('startSate')
+            ->add('startDate')
             ->add('endDate')
             ->add('descriptionSession')
             ->add('placesDisponibles')

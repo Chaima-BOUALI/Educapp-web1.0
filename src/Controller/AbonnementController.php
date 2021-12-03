@@ -94,4 +94,17 @@ class AbonnementController extends AbstractController
 
         return $this->redirectToRoute('abonnement_index', [], Response::HTTP_SEE_OTHER);
     }
+    /**
+     * @Route("/abn/acc", name="abn_acc")
+     */
+    public function acc(): Response
+    {
+        $abonnements = $this->getDoctrine()
+            ->getRepository(Abonnement::class)
+            ->findAll();
+
+        return $this->render('abonnement/acc.html.twig', [
+            'abonnements' => $abonnements,
+        ]);
+    }
 }
