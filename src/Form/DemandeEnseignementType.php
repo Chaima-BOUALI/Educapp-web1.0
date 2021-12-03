@@ -14,8 +14,7 @@ class DemandeEnseignementType extends AbstractType
         $builder
             ->add('nomDemande')
             ->add('descriptionDemande')
-            ->add('decision')
-            ->add('urlParticipation')
+
             ->add('user')
         ;
     }

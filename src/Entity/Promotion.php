@@ -38,6 +38,16 @@ class Promotion
      */
     private $session;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pourcentage;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -63,6 +73,30 @@ class Promotion
     public function setSession(?Session $session): self
     {
         $this->session = $session;
+
+        return $this;
+    }
+
+    public function getPourcentage(): ?string
+    {
+        return $this->pourcentage;
+    }
+
+    public function setPourcentage(?string $pourcentage): self
+    {
+        $this->pourcentage = $pourcentage;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

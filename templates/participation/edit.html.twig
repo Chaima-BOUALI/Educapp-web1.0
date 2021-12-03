@@ -1,12 +1,14 @@
-{% extends 'base-front.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Modifier la participation {% endblock %}
-
+{% block stylesheets %}
+    <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+{% endblock %}
 {% block body %}
     <h1>Modifier votre participation</h1>
 
     {{ include('participation/_form.html.twig', {'button_label': 'Update'}) }}
-<button type="submit">
+<button class="A-Button" type="submit">
 
     <a href="{{ path('participation_index') }}">Afficher la liste des participations </a>
 </button>

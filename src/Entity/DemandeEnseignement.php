@@ -3,9 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 /**
  * DemandeEnseignement
  *
@@ -33,26 +31,13 @@ class DemandeEnseignement
     /**
      * @var string
      *
-     * @ORM\Column(name="description_demande", type="text", length=0, nullable=false)
+     * @ORM\Column(name="description_demande", type="text", nullable=false)
      */
     private $descriptionDemande;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="decision", type="boolean", nullable=false)
-     */
-    private $decision;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="url_participation", type="string", length=255, nullable=false)
-     * @Assert\Url(
-     *    message = "The url '{{ value }}' is not a valid url",
-     * )
-     */
-    private $urlParticipation;
+
+
 
     /**
      * @var \User
@@ -63,6 +48,11 @@ class DemandeEnseignement
      * })
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
 
     public function getId(): ?int
     {
@@ -93,29 +83,9 @@ class DemandeEnseignement
         return $this;
     }
 
-    public function getDecision(): ?bool
-    {
-        return $this->decision;
-    }
 
-    public function setDecision(bool $decision): self
-    {
-        $this->decision = $decision;
 
-        return $this;
-    }
 
-    public function getUrlParticipation(): ?string
-    {
-        return $this->urlParticipation;
-    }
-
-    public function setUrlParticipation(string $urlParticipation): self
-    {
-        $this->urlParticipation = $urlParticipation;
-
-        return $this;
-    }
 
     public function getUser(): ?User
     {
@@ -132,5 +102,17 @@ class DemandeEnseignement
     public function __toString()
     {
         return(string)$this->getNomDemande();
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }

@@ -1,12 +1,15 @@
-{% extends 'base-front.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Modifier votre demande d'enseignement{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
+{% endblock %}
 {% block body %}
     <h1>Modifier votre demande d'enseignement</h1>
 
     {{ include('demande_enseignement/_form.html.twig', {'button_label': 'Update'}) }}
-<button type="submit">
+<button class="A-Button" type="submit">
 
     <a href="{{ path('demande_enseignement_index') }}">Afficher la liste des demandes d'enseignement</a>
 </button>

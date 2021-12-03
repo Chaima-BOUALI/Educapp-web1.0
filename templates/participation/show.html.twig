@@ -1,7 +1,9 @@
-{% extends 'base-front.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}AFFICHER L'HISTORIQUE DES PARTICIPATIONS{% endblock %}
-
+{% block stylesheets %}
+    <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+{% endblock %}
 {% block body %}
     <h1>Afficher l'historique des participations</h1>
 
@@ -25,11 +27,11 @@
             </tr>
         </tbody>
     </table>
-<button type="submit">
+<button class="A-Button" type="submit">
 
     <a href="{{ path('participation_index') }}">Afficher l'historique des participations</a>
 </button>
-<button type="submit">
+<button class="A-Button" type="submit">
 
 <a href="{{ path('participation_edit', {'id': participation.id}) }}">Modifier votre participation</a>
 </button>

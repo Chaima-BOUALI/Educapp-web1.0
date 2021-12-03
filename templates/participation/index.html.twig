@@ -15,12 +15,12 @@
      <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
  {% endblock %}
-
 {% block body %}
+
     <h1>HISTORIQUE DES PARTICIPATIONS </h1>
 
-
 <table class="table-responsive">
+
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
@@ -30,6 +30,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
+
                 <h6 class="m-0 font-weight-bold text-primary">BASE DE DONNEES DES UTILISATEURS</h6>
             </div>
 
@@ -44,164 +45,67 @@
                 <th>Objet</th>
                 <th>ContenuParticipation</th>
                 <th>actions</th>
+                <th>Decision</th>
+
             </tr>
+
         </thead>
 
         <tbody>
 
+
         <tr>
-            <td>01</td>
-            <td>PARTICIPATION01</td>
-            <td>SESSION PYTHON</td>
-            <td>Je veux participer à la session PYTHON </td>
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Modifier</a>
+            {% for participation in participations %}
+        <tr>
+            <td>{{ participation.id }}</td>
+            <td>{{ participation.nomParticipation }}</td>
+            <td>{{ participation.objet }}</td>
+            <td>{{ participation.contenuParticipation }}</td>
+            <td>{{ participation.decision ? 'Yes' : 'No' }}</td>
+            <td>
+                <button class="Add-Button" type="submit">
 
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Supprimer</a>
+                    <a href="{{ path('participation_show', {'id': participation.id}) }}">Afficher</a>
+                </button>
+                <br>
+                <button class="Add-Button" type="submit" >
 
-                    </button>
-                </form></td>
+                    <a href="{{ path('participation_edit', {'id': participation.id}) }}">Modifier</a>
+                </button>
+            </td>
 
         </tr>
+
+        {% endfor %}
         <tr>
-            <td>01</td>
-            <td>PARTICIPATION01</td>
-            <td>SESSION PYTHON</td>
-            <td>Je veux participer à la session PYTHON </td>
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
+            <button class="A-Button" type="submit">
+                <a href="{{ path('participation_new') }}">Ajouter une participation </a>
+            </button>
 
         </tr>
-        <tr>
-            <td>01</td>
-            <td>PARTICIPATION01</td>
-            <td>SESSION PYTHON</td>
-            <td>Je veux participer à la session PYTHON </td>
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Modifier</a>
 
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Supprimer</a>
 
-                    </button>
-                </form></td>
 
-        </tr>
-        <tr>
-            <td>01</td>
-            <td>PARTICIPATION01</td>
-            <td>SESSION PYTHON</td>
-            <td>Je veux participer à la session PYTHON </td>
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        <tr>
-            <td>01</td>
-            <td>PARTICIPATION01</td>
-            <td>SESSION PYTHON</td>
-            <td>Je veux participer à la session PYTHON </td>
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        <tr>
-            <td>01</td>
-            <td>PARTICIPATION01</td>
-            <td>SESSION PYTHON</td>
-            <td>Je veux participer à la session PYTHON </td>
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        <tr>
-            <td>01</td>
-            <td>PARTICIPATION01</td>
-            <td>SESSION PYTHON</td>
-            <td>Je veux participer à la session PYTHON </td>
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('participation_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
         </tbody>
-    </table>
-            </div>
-        </div>
-    </div>
-    </div>
 
-    </div>
+    </table></table></div></div></div>
 
-    </div>
 
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- /.container-fluid -->
 
-    </div>
+
     <!-- End of Main Content -->
 
     <!-- Footer -->
@@ -214,35 +118,14 @@
     </footer>
     <!-- End of Footer -->
 
-    </div>
+
     <!-- End of Content Wrapper -->
 
-    </div>
+
     <!-- End of Page Wrapper -->
 
         </tr>
-        {% for participation in participations %}
-            <tr>
-                <td>{{ participation.id }}</td>
-                <td>{{ participation.nomParticipation }}</td>
-                <td>{{ participation.objet }}</td>
-                <td>{{ participation.contenuParticipation }}</td>
-                <td>
-                    <button type="submit">
 
-                    <a href="{{ path('participation_show', {'id': participation.id}) }}">Afficher la liste des participations </a>
-                    </button>
-                    <button type="submit">
-
-                    <a href="{{ path('participation_edit', {'id': participation.id}) }}">Modifier votre participation </a>
-                    </button>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
         </tbody>
     </table>
     {% block javascripts %}

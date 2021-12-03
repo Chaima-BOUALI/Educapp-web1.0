@@ -45,16 +45,16 @@ class Participation
     /**
      * @var string
      *@Assert\Length(
-     *      min = 100,
+     *      min = 50,
      *      max = 500,
-     *      minMessage = "votre objet doit comporter au moins {{ limit }} characteres",
+     *      minMessage = "votre contenu doit comporter au moins {{ limit }} characteres",
      *      maxMessage = "vous avez atteint votre limite , {{ limit }} characteres"
      * )
      * @ORM\Column(name="contenu_participation", type="text", length=0, nullable=false)
      */
     private $contenuParticipation;
 
-    /**
+    /* /**
      * @var \Formateur
      *
      * @ORM\ManyToOne(targetEntity="Formateur")
@@ -62,7 +62,14 @@ class Participation
      *   @ORM\JoinColumn(name="formateur_id", referencedColumnName="id")
      * })
      */
-    private $formateur;
+  /*  private $formateur; */
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="decision", type="boolean", nullable=false)
+     */
+    private $decision;
 
     public function getId(): ?int
     {
@@ -105,7 +112,7 @@ class Participation
         return $this;
     }
 
-    public function getFormateur(): ?Formateur
+   /* public function getFormateur(): ?Formateur
     {
         return $this->formateur;
     }
@@ -115,10 +122,22 @@ class Participation
         $this->formateur = $formateur;
 
         return $this;
-    }
+    } */
 
     public function __toString()
     {
         return(string)$this->getNomParticipation();
     }
+    public function getDecision(): ?bool
+    {
+        return $this->decision;
+    }
+
+    public function setDecision(bool $decision): self
+    {
+        $this->decision = $decision;
+
+        return $this;
+    }
 }
+

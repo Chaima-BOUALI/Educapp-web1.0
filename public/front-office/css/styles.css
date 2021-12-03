@@ -2879,7 +2879,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     padding: 0;
     margin: 0;
     opacity: 1;
-    font: 0/0 a;
+    font: 0/0;
     text-shadow: none;
     color: transparent;
     -webkit-transition: all, .3s, ease-in-out;

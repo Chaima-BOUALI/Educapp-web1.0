@@ -15,7 +15,8 @@ class ParticipationType extends AbstractType
             ->add('nomParticipation')
             ->add('objet')
             ->add('contenuParticipation')
-            ->add('formateur')
+           /* ->add('formateur') */
+            ->add('decision')
         ;
     }
 
