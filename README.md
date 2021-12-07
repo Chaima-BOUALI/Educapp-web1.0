@@ -21,6 +21,16 @@ WampServer n'est pas en soi un logiciel, mais un environnement comprenant trois 
 2. __Pourquoi GitHub?__ 
 GitHub permet aux développeurs de : stocker et de partager, publiquement ou non, le code qu’ils créent. La plate-forme accueille ainsi, dit-elle, plus de 80 millions de projets, qu’il s’agisse de logiciels, de sites Web, d’applications pour mobile ou tous autres types de programme informatique — et ce quel que soit le langage de programmation utilisé.
 
+__Les commandes les plus utliliser sur Gitbash: __
+***
+- [x] git init : Pour initialiser votre projet.
+- [ ] git remote add origin https://github.com/ChaymaBoualy/Educapp-web1.0.git : pour cloner le projet.
+- [ ] git fetch : pour consulter toutes les branches.
+- [ ] git checkout [NOM DE VOTRE BRANCHE] : pour se déplacer sur la branche concernée
+- [ ] git status : pour consulter les dossiers à ajouter.
+- [ ] git add . : pour initialiser votre push.
+- [ ] git commit : pour laisser votre commentaire.
+- [ ] git push : pour confimer l'ajout de votre contenu sur la branche en question :tada:
 ## Installation 
 ***
 Pour installer EDUCAPP sur vos machines il vous suffira de: 
