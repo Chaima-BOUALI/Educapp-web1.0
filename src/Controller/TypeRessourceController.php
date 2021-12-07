@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/type/ressource")
@@ -16,6 +18,7 @@ class TypeRessourceController extends AbstractController
 {
     /**
      * @Route("/", name="type_ressource_index", methods={"GET"})
+     * @IsGranted ("ROLE_USER")
      */
     public function index(): Response
     {
@@ -30,6 +33,7 @@ class TypeRessourceController extends AbstractController
 
     /**
      * @Route("/new", name="type_ressource_new", methods={"GET","POST"})
+     * @IsGranted ("ROLE_USER")
      */
     public function new(Request $request): Response
     {
@@ -53,6 +57,7 @@ class TypeRessourceController extends AbstractController
 
     /**
      * @Route("/{id}", name="type_ressource_show", methods={"GET"})
+     * @IsGranted ("ROLE_USER")
      */
     public function show(TypeRessource $typeRessource): Response
     {
@@ -83,6 +88,7 @@ class TypeRessourceController extends AbstractController
 
     /**
      * @Route("/{id}", name="type_ressource_delete", methods={"POST"})
+     * @IsGranted ("ROLE_USER")
      */
     public function delete(Request $request, TypeRessource $typeRessource): Response
     {

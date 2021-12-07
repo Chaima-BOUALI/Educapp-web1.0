@@ -8,14 +8,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/candidat")
+
  */
 class CandidatController extends AbstractController
 {
     /**
      * @Route("/", name="candidat_index", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function index(): Response
     {
@@ -30,6 +34,7 @@ class CandidatController extends AbstractController
 
     /**
      * @Route("/new", name="candidat_new", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -53,6 +58,7 @@ class CandidatController extends AbstractController
 
     /**
      * @Route("/{id}", name="candidat_show", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function show(Candidat $candidat): Response
     {
@@ -63,6 +69,7 @@ class CandidatController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="candidat_edit", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Candidat $candidat): Response
     {
@@ -83,6 +90,7 @@ class CandidatController extends AbstractController
 
     /**
      * @Route("/{id}", name="candidat_delete", methods={"POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Candidat $candidat): Response
     {
@@ -97,6 +105,7 @@ class CandidatController extends AbstractController
 
     /**
      * @Route("/moyenneage", name="candidat_moyenneage")
+     * @IsGranted ("ROLE_ADMIN")
      */
     function cacul_moyenneage($nombre,$total,$pourcentage)
     {

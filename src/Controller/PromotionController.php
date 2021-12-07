@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/promotion")
@@ -16,6 +18,7 @@ class PromotionController extends AbstractController
 {
     /**
      * @Route("/", name="promotion_index", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function index(): Response
     {
@@ -30,6 +33,7 @@ class PromotionController extends AbstractController
 
     /**
      * @Route("/new", name="promotion_new", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -53,6 +57,7 @@ class PromotionController extends AbstractController
 
     /**
      * @Route("/{id}", name="promotion_show", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function show(Promotion $promotion): Response
     {
@@ -63,6 +68,7 @@ class PromotionController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="promotion_edit", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Promotion $promotion): Response
     {
@@ -83,6 +89,7 @@ class PromotionController extends AbstractController
 
     /**
      * @Route("/{id}", name="promotion_delete", methods={"POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Promotion $promotion): Response
     {

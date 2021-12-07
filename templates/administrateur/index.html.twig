@@ -1,20 +1,173 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdministrateurController!{% endblock %}
-
+{% block title %}ESPACE ADMINISTRATEUR{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<center>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1 CLASS="border border-dark rounded text-white n-2 p-2 center bg-info"> CONSULTER TOUTES LES GESTIONS</h1>
+    <div class="row no-gutters">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/Educapp5.0/src/Controller/AdministrateurController.php'|file_link(0) }}">src/Controller/AdministrateurController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/Educapp5.0/templates/administrateur/index.html.twig'|file_link(0) }}">templates/administrateur/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+    <div class="col-6 col-lg-3 p-1 ">
+        <div class="card nb-5">
+            <div class="row no-gutters aline-items-center p-2">
+                <img src="{{ asset('front-office/images/session.jpg') }}" class="card-img" >
+            </div>
+        </div>
+        <center>
+            <div class="card-body">
+                <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                    <a href="{{ path('session_index') }}"> Sessions</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+        <div class="col-6 col-lg-3 p-1 ">
+            <div class="card nb-5">
+                <div class="row no-gutters aline-items-center p-2">
+                    <img src="{{ asset('front-office/images/ressource.jpg') }}" class="card-img" >
+                </div>
+            </div>
+            <center>
+                <div class="card-body">
+                    <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                        <a href="{{ path('ressource_index') }}"> Ressources des sessions</a>
+                    </h4>
+                </div>
+            </center>
+        </div>
+
+
+    <div class="col-6 col-lg-3 p-1 ">
+        <div class="card nb-5">
+            <div class="row no-gutters aline-items-center p-2">
+                <img src="{{ asset('front-office/images/candidat.jpg') }}" class="card-img" >
+            </div>
+        </div>
+        <center>
+            <div class="card-body">
+                <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                    <a href="{{ path('candidat_index') }}"> Candidats</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+
+    <div class="col-6 col-lg-3 p-1 ">
+        <div class="card nb-5">
+            <div class="row no-gutters aline-items-center p-2">
+                <img src="{{ asset('front-office/images/formateur.jpg') }}" class="card-img" >
+            </div>
+        </div>
+        <center>
+            <div class="card-body">
+                <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                    <a href="{{ path('formateur_index') }}"> Formateurs</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+    <div class="col-6 col-lg-3 p-1 ">
+        <div class="card nb-5">
+            <div class="row no-gutters aline-items-center p-2">
+                <img src="{{ asset('front-office/images/entretient.jpg') }}" class="card-img" >
+            </div>
+        </div>
+        <center>
+            <div class="card-body">
+                <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                    <a href="{{ path('demande_enseignement_index') }}"> Recrutements</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+
+
+    <div class="col-6 col-lg-3 p-1 ">
+        <div class="card nb-5">
+            <div class="row no-gutters aline-items-center p-2">
+                <img src="{{ asset('front-office/images/admin1.jpg') }}" class="card-img" >
+            </div>
+        </div>
+        <center>
+            <div class="card-body">
+                <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                    <a href="{{ path('type_ressource_index') }}"> Les types de ressources de chaque session</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+    <div class="col-6 col-lg-3 p-1 ">
+        <div class="card nb-5">
+            <div class="row no-gutters aline-items-center p-2">
+                <img src="{{ asset('front-office/images/background.jpg') }}" class="card-img" >
+            </div>
+        </div>
+        <center>
+            <div class="card-body">
+                <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                    <a href="{{ path('user_index') }}"> Touts les utilisateurs</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+        <div class="col-6 col-lg-3 p-1 ">
+            <div class="card nb-5">
+                <div class="row no-gutters aline-items-center p-2">
+                    <img src="{{ asset('front-office/images/pub2.jpg') }}" class="card-img" >
+                </div>
+            </div>
+            <center>
+                <div class="card-body">
+                    <h4 class="card-title border border-dark rounded text-white n-1 p-1 center bg-sucess">
+                        <a href="{{ path('publicity_index') }}">Publicités</a>
+                    </h4>
+                </div>
+            </center>
+        </div>
+        <div class="col-6 col-lg-3 p-1 ">
+            <div class="card nb-5">
+                <div class="row no-gutters aline-items-center p-2">
+                    <img src="{{ asset('front-office/images/abonnement1.jpg') }}" class="card-img" >
+                </div>
+            </div>
+            <center>
+                <div class="card-body">
+                    <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                        <a href="{{ path('abonnement_index') }}"> Abonnements</a>
+                    </h4>
+                </div>
+            </center>
+        </div>
+        <div class="col-6 col-lg-3 p-1 ">
+            <div class="card nb-5">
+                <div class="row no-gutters aline-items-center p-2">
+                    <img src="{{ asset('front-office/images/promotion.jpg') }}" class="card-img" >
+                </div>
+            </div>
+            <center>
+                <div class="card-body">
+                    <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                        <a href="{{ path('promotion_index') }}"> Promotions</a>
+                    </h4>
+                </div>
+            </center>
+        </div>
+        <div class="col-6 col-lg-3 p-1 ">
+            <div class="card nb-5">
+                <div class="row no-gutters aline-items-center p-2">
+                    <img src="{{ asset('front-office/images/reclamation.jpg') }}" class="card-img" >
+                </div>
+            </div>
+            <center>
+                <div class="card-body">
+                    <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
+                        <a href="{{ path('reclamation_index') }}">Reclamations</a>
+                    </h4>
+                </div>
+            </center>
+        </div>
+    </div>
+
+</center>
 {% endblock %}

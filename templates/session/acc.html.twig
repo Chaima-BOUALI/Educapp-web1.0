@@ -18,6 +18,7 @@
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path ('pub_acc') }}"> Publicités</a>
                     </li>
@@ -25,13 +26,16 @@
                         <a class="nav-link" href="{{ path('promo_acc') }}">Promotions  </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('session_acc') }}"> Sessions</a>
+                        <a class="nav-link" href="{{ path('abn_acc') }}"> Abonnements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('dem_acc') }}"> Recrutements  </a>
+                        <a class="nav-link" href="{{ path('dem_acc') }}">  Recrutements  </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=""{{ path('rec_acc') }}"">Reclamations</a>
+                        <a class="nav-link" href="{{ path ('rec_acc') }}">Reclamations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path ('ses_acc') }}">Sessions</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -44,6 +48,29 @@
     <div class="container">
         <center>
             {% block titre%} <h1 CLASS="border border-dark rounded text-white n-2 p-2 center bg-info"> BIENVENUE A EDUCAPP</h1> {% endblock %}
+            {% for s in sessions %}
+
+                <div class="col-12 col-lg-6 p-1">
+
+                    <div class="card nb-3">
+                        <div class="row no-gutters aline-items-center p-2">
+                            <div class="col-12 col-nd-4">
+                                <img src="{{ asset('front-office/images/ses1.png' ~ s.image) }}" class="card-img" >
+                            </div>
+                            <div class="col">
+                                <div class="card-body">
+                                </div>
+                                <center>
+                                    <h4 class="card-title border border-dark rounded text-white n-2 p-2 center bg-info"> Abonnement
+                                        <h6> {{ s.NomSession}} </h6>
+
+                                    </h4>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
 
             <h9> Touts droits reservés 2021 @EDUCAPP</h9>
         </center>

@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/session")
@@ -16,6 +18,7 @@ class SessionController extends AbstractController
 {
     /**
      * @Route("/", name="session_index", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function index(): Response
     {
@@ -30,6 +33,7 @@ class SessionController extends AbstractController
 
     /**
      * @Route("/new", name="session_new", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -53,6 +57,7 @@ class SessionController extends AbstractController
 
     /**
      * @Route("/{id}", name="session_show", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function show(Session $session): Response
     {
@@ -63,6 +68,7 @@ class SessionController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="session_edit", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Session $session): Response
     {
@@ -83,6 +89,7 @@ class SessionController extends AbstractController
 
     /**
      * @Route("/{id}", name="session_delete", methods={"POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Session $session): Response
     {
@@ -95,13 +102,16 @@ class SessionController extends AbstractController
         return $this->redirectToRoute('session_index', [], Response::HTTP_SEE_OTHER);
     }
     /**
-     * @Route("/session/acc", name="session_acc")
+     * @Route("/session/acc", name="ses_acc")
      */
     public function acc(): Response
     {
+        $sessions = $this->getDoctrine()
+            ->getRepository(Session::class)
+            ->findAll();
 
-        return $this->render('session_acc/index.html.twig', [
-            'controller_name' => 'SessionAccController',
+        return $this->render('session/acc.html.twig', [
+            'sessions' => $sessions,
         ]);
     }
 }

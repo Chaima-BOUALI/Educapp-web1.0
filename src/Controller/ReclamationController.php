@@ -8,7 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 /**
  * @Route("/reclamation")
  */
@@ -16,6 +17,7 @@ class ReclamationController extends AbstractController
 {
     /**
      * @Route("/", name="reclamation_index", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function index(): Response
     {
@@ -30,6 +32,7 @@ class ReclamationController extends AbstractController
 
     /**
      * @Route("/new", name="reclamation_new", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -53,6 +56,7 @@ class ReclamationController extends AbstractController
 
     /**
      * @Route("/{id}", name="reclamation_show", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function show(Reclamation $reclamation): Response
     {
@@ -63,6 +67,7 @@ class ReclamationController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="reclamation_edit", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Reclamation $reclamation): Response
     {
@@ -83,6 +88,7 @@ class ReclamationController extends AbstractController
 
     /**
      * @Route("/{id}", name="reclamation_delete", methods={"POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Reclamation $reclamation): Response
     {

@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/ressource")
@@ -16,6 +18,7 @@ class RessourceController extends AbstractController
 {
     /**
      * @Route("/", name="ressource_index", methods={"GET"})
+     * @IsGranted ("ROLE_USER")
      */
     public function index(): Response
     {
@@ -30,6 +33,7 @@ class RessourceController extends AbstractController
 
     /**
      * @Route("/new", name="ressource_new", methods={"GET","POST"})
+     * @IsGranted ("ROLE_USER")
      */
     public function new(Request $request): Response
     {
@@ -53,6 +57,7 @@ class RessourceController extends AbstractController
 
     /**
      * @Route("/{id}", name="ressource_show", methods={"GET"})
+     * @IsGranted ("ROLE_USER")
      */
     public function show(Ressource $ressource): Response
     {
@@ -63,6 +68,7 @@ class RessourceController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="ressource_edit", methods={"GET","POST"})
+     * @IsGranted ("ROLE_USER")
      */
     public function edit(Request $request, Ressource $ressource): Response
     {
@@ -83,6 +89,8 @@ class RessourceController extends AbstractController
 
     /**
      * @Route("/{id}", name="ressource_delete", methods={"POST"})
+     * @IsGranted ("ROLE_USER")
+    
      */
     public function delete(Request $request, Ressource $ressource): Response
     {

@@ -13,6 +13,8 @@ use App\PublicityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Query;
 use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
 /**
@@ -22,6 +24,7 @@ class PublicityController extends AbstractController
 {
     /**
      * @Route("/", name="publicity_index", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function index(): Response
     {
@@ -36,6 +39,7 @@ class PublicityController extends AbstractController
 
     /**
      * @Route("/new", name="publicity_new", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -59,6 +63,7 @@ class PublicityController extends AbstractController
 
     /**
      * @Route("/{id}", name="publicity_show", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function show(Publicity $publicity): Response
     {
@@ -69,6 +74,7 @@ class PublicityController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="publicity_edit", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Publicity $publicity): Response
     {
@@ -89,6 +95,7 @@ class PublicityController extends AbstractController
 
     /**
      * @Route("/{id}", name="publicity_delete", methods={"POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Publicity $publicity): Response
     {

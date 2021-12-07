@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/abonnement")
@@ -16,6 +18,7 @@ class AbonnementController extends AbstractController
 {
     /**
      * @Route("/", name="abonnement_index", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function index(): Response
     {
@@ -30,6 +33,7 @@ class AbonnementController extends AbstractController
 
     /**
      * @Route("/new", name="abonnement_new", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -53,6 +57,7 @@ class AbonnementController extends AbstractController
 
     /**
      * @Route("/{id}", name="abonnement_show", methods={"GET"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function show(Abonnement $abonnement): Response
     {
@@ -63,6 +68,7 @@ class AbonnementController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="abonnement_edit", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Abonnement $abonnement): Response
     {
@@ -83,6 +89,7 @@ class AbonnementController extends AbstractController
 
     /**
      * @Route("/{id}", name="abonnement_delete", methods={"POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Abonnement $abonnement): Response
     {
