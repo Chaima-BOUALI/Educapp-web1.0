@@ -31,7 +31,7 @@ class CompteRendu
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_limite", type="date", nullable=false)
+     * @ORM\Column(name="date_limite", type="date", nullable=true)
      */
     private $dateLimite;
 

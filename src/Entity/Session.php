@@ -46,7 +46,7 @@ class Session
     /**
      * @var string
      *
-     * @ORM\Column(name="description_session", type="text", length=0, nullable=false)
+     * @ORM\Column(name="description_session", type="text", nullable=false)
      */
     private $descriptionSession;
 

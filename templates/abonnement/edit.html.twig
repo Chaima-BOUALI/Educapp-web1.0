@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Abonnement{% endblock %}
+{% block title %}Modifier les Abonnements{% endblock %}
 
 {% block body %}
-    <h1>Edit Abonnement</h1>
+    <body class="container">
+    <h1>Modifier un abonnement </h1>
 
     {{ include('abonnement/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('abonnement_index') }}">back to list</a>
-
+    <button class="btn-dark"  type="submit">
+        <a href="{{ path('abonnement_index') }}">Afficher la liste des abonnements</a>
+    </button>
     {{ include('abonnement/_delete_form.html.twig') }}
+    </body>>
 {% endblock %}

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Entity;
-
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,7 +32,11 @@ class Reclamation
 
     /**
      * @var string
-     *
+     *@Assert\Length(
+     *      min = 5,
+     *      max = 15,
+     *     )
+
      * @ORM\Column(name="etat_reclamation", type="string", length=255, nullable=false)
      */
     private $etatReclamation;
@@ -38,14 +44,14 @@ class Reclamation
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu_reclamation", type="text", length=0, nullable=false)
+     * @ORM\Column(name="contenu_reclamation", type="text", nullable=false)
      */
     private $contenuReclamation;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_reclamation", type="date", nullable=false)
+     * @ORM\Column(name="date_reclamation", type="date", nullable=true)
      */
     private $dateReclamation;
 

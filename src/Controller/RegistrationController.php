@@ -40,8 +40,10 @@ class RegistrationController extends AbstractController
             $userPasswordEncoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
-                )
+            )
             );
+                $user->setRoles(['ROLE_USER']);
+
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -90,5 +92,6 @@ class RegistrationController extends AbstractController
         $this->addFlash('success', 'Votre adresse Mail a bien été vérifiée.');
 
         return $this->redirectToRoute('homepage');
+
     }
 }
