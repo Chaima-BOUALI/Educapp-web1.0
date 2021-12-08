@@ -64,4 +64,16 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+    public function Get_Pourcentage()
+    {
+        $em =$this->getEntityManager();
+        $query =$em->createQuery('SELECT COUNT(A)as Nbr,S.nomSession FROM App\Entity\Abonnement A  ,App\Entity\Session S Where A.session=S.id GROUP BY A.session');
+        return $query->getResult();
+    }
+    public function Get_Total()
+    {
+        $em =$this->getEntityManager();
+        $query =$em->createQuery('SELECT COUNT(A)as total FROM App\Entity\Abonnement A ');
+        return $query->getSingleScalarResult();
+    }
 }

@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use App\Repository\UserRepository;
 /**
  * @Route("/session")
  */
@@ -50,6 +50,19 @@ class SessionController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/prc", name="session_prc", methods={"GET","POST"})
+     */
+    public function prc(UserRepository $repo): Response
+    {
+        $res = $repo->Get_Pourcentage();
+        $total= $repo->Get_Total();
+        return $this->render('session/res.html.twig', [
+            'res' => $res, 'total' => $total
+        ]);
+    }
+
 
     /**
      * @Route("/{id}", name="session_show", methods={"GET"})
@@ -94,9 +107,9 @@ class SessionController extends AbstractController
 
         return $this->redirectToRoute('session_index', [], Response::HTTP_SEE_OTHER);
     }
-/**
-* @Route("/interet", name="session_interet")
-*/
+    /**
+     * @Route("/interet", name="session_interet")
+     */
     function interet($nombre,$total,$pourcentage)
     {
         $candidats = $this->getDoctrine()
