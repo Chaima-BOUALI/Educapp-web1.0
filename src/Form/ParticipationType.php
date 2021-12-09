@@ -6,6 +6,7 @@ use App\Entity\Participation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ParticipationType extends AbstractType
 {
@@ -16,6 +17,7 @@ class ParticipationType extends AbstractType
             ->add('objet')
             ->add('contenuParticipation')
            /* ->add('formateur') */
+           ->add('imageFile',VichImageType::class)
             ->add('decision')
         ;
     }

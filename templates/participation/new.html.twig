@@ -5,10 +5,9 @@
     <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 {% endblock %}
 {% block body %}
-    <h1>Ajouter une participation</h1>
-
-    {{ include('participation/_form.html.twig') }}
-
+    <h1 class="eb3ed">Ajouter une participation</h1>
+<br><br><br><br>
+    {{ include('participation/formm.html.twig') }}
     <button class="A-Button" type="submit">
 
     <a href="{{ path('participation_index') }}">Afficher la liste des participations</a>

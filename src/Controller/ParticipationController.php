@@ -96,52 +96,6 @@ class ParticipationController extends AbstractController
     }
 
 
-   /* /**
-     * @Route("/{id}", "participation/index.html.twig", name="Pourcentagedecision",methods={"GET"})
-     */
-   /* public function Pourcentagedecision($total, $static, $yes ): Response
-    {
-        $participation = $this->getDoctrine()
-            ->getRepository(Participation::class);
-        $total = 0;
 
-        foreach ($this->participation->getDecision() as $decision) {
-            $total = $total + 1;
-        }
-        $yes = 1;
-        /*  if ($participation.$decision->isSubmitted()) {
-
-              foreach ($this->getDecision() as $decision) {
-                  $yes++;
-              }
-          }
-
-        $static = $yes / $total;
-
-
-        return $this->render('participation/index.html.twig', compact('static'),Response::HTTP_SEE_OTHER);
-
-    } */
-
-
-
-
-
-
-
-    /**
-     * @Route("/{id, Decision }", name="participation_showdescision", methods={"GET"})
-     */
-    public function yes(Request $request,Participation $participation): Response
-    {
-        $decision=$participation->getDecision();
-        if ($decision->isSubmitted())
-        {$form = $this->createForm(ParticipationType::class, $participation);
-            $form->handleRequest($request);}
-
-
-            return $this->render('participation/showyes.html.twig', [
-                'decision' => $decision,]);
-    }
 
 }

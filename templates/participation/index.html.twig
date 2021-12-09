@@ -44,8 +44,9 @@
                 <th>NomParticipation</th>
                 <th>Objet</th>
                 <th>ContenuParticipation</th>
-                <th>actions</th>
+                <th>C.V</th>
                 <th>Decision</th>
+                <th>Action</th>
 
             </tr>
 
@@ -61,6 +62,7 @@
             <td>{{ participation.nomParticipation }}</td>
             <td>{{ participation.objet }}</td>
             <td>{{ participation.contenuParticipation }}</td>
+            <td>{{ participation.image}}</td>
             <td>{{ participation.decision ? 'Yes' : 'No' }}</td>
             <td>
                 <button class="Add-Button" type="submit">
@@ -82,7 +84,10 @@
                 <a href="{{ path('participation_new') }}">Ajouter une participation </a>
             </button>
 
+
         </tr>
+
+
 
 
 

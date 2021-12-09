@@ -6,11 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * Participation
  *
- * @ORM\Table(name="participation", indexes={@ORM\Index(name="IDX_AB55E24F155D8F51", columns={"formateur_id"})})
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Participation
 {
@@ -54,15 +56,25 @@ class Participation
      */
     private $contenuParticipation;
 
-    /* /**
-     * @var \Formateur
-     *
-     * @ORM\ManyToOne(targetEntity="Formateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="formateur_id", referencedColumnName="id")
-     * })
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
      */
-  /*  private $formateur; */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="participation", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    // ...
 
     /**
      * @var bool
@@ -112,22 +124,41 @@ class Participation
         return $this;
     }
 
-   /* public function getFormateur(): ?Formateur
-    {
-        return $this->formateur;
-    }
 
-    public function setFormateur(?Formateur $formateur): self
-    {
-        $this->formateur = $formateur;
-
-        return $this;
-    } */
 
     public function __toString()
     {
         return(string)$this->getNomParticipation();
     }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
     public function getDecision(): ?bool
     {
         return $this->decision;

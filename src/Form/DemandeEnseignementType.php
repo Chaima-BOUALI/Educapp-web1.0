@@ -15,7 +15,7 @@ class DemandeEnseignementType extends AbstractType
             ->add('nomDemande')
             ->add('descriptionDemande')
 
-            ->add('user')
+
         ;
     }
 

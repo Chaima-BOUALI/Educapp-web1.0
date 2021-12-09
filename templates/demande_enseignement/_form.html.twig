@@ -1,4 +1,11 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.nomDemande) }} <br>
+    {{ form_widget(form.nomDemande) }}
+    <br><br><br>
+    {{ form_label(form.descriptionDemande) }} <br>
+    {{ form_widget(form.descriptionDemande) }}
+    <br><br><br>
+
     <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{{ form_end(form) }} </div>
