@@ -96,4 +96,21 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/user/profile", name="user_profile")
+     */
+    public function profile(): Response
+    {
+        $users = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findAll();
+
+        return $this->render('user/profile.html.twig', [
+            'controller_name' => 'UserController',
+            'users' => $users,
+
+        ]);
+    }
+
 }

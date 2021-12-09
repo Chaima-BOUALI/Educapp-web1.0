@@ -8,8 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Repository\UserRepository;
+use App\Entity\Candidat;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 
 /**
  * @Route("/session")
@@ -18,7 +20,6 @@ class SessionController extends AbstractController
 {
     /**
      * @Route("/", name="session_index", methods={"GET"})
-     * @IsGranted ("ROLE_ADMIN")
      */
     public function index(): Response
     {
@@ -33,7 +34,6 @@ class SessionController extends AbstractController
 
     /**
      * @Route("/new", name="session_new", methods={"GET","POST"})
-     * @IsGranted ("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -56,8 +56,21 @@ class SessionController extends AbstractController
     }
 
     /**
+     * @Route("/prc", name="session_prc", methods={"GET","POST"})
+     *
+     */
+    public function prc(UserRepository $repo): Response
+    {
+        $res = $repo->Get_Pourcentage();
+        $total= $repo->Get_Total();
+        return $this->render('session/res.html.twig', [
+            'res' => $res, 'total' => $total
+        ]);
+    }
+
+
+    /**
      * @Route("/{id}", name="session_show", methods={"GET"})
-     * @IsGranted ("ROLE_ADMIN")
      */
     public function show(Session $session): Response
     {
@@ -68,7 +81,6 @@ class SessionController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="session_edit", methods={"GET","POST"})
-     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Session $session): Response
     {
@@ -89,7 +101,6 @@ class SessionController extends AbstractController
 
     /**
      * @Route("/{id}", name="session_delete", methods={"POST"})
-     * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Session $session): Response
     {
@@ -100,6 +111,23 @@ class SessionController extends AbstractController
         }
 
         return $this->redirectToRoute('session_index', [], Response::HTTP_SEE_OTHER);
+    }
+    /**
+     * @Route("/interet", name="session_interet")
+     */
+    function interet($nombre,$total,$pourcentage)
+    {
+        $candidats = $this->getDoctrine()
+            ->getRepository(Session::class)
+            ->interet();
+        $nombre_session = "SELECT * FROM session ";
+        $total_candidat = "SELECT * FROM candidat";
+        $valeur_p = 100;
+        echo cacul_moyenneage($nombre_session, $total_candidat, $valeur_p) . " %";
+        $resultat = ($nombre / $total) * $pourcentage;
+
+        return $this->render('session/index.html.twig', ['resultat'=> $resultat]);
+
     }
     /**
      * @Route("/session/acc", name="ses_acc")

@@ -1,7 +1,26 @@
 vich_uploader:
     db_driver: orm
 
-    #mappings:
-       # publicity:
-          #  uri_prefix: /images/publicity
-           # upload_destination: '%kernel.project_dir%/public/images/publicity'
+    mappings:
+        participation:
+            uri_prefix: /images/participation
+            upload_destination: '%kernel.project_dir%/public/images/participation'
+
+            inject_on_load: false
+            delete_on_remove: false
+
+
+        promotion:
+            uri_prefix: /images/promotion
+            upload_destination: '%kernel.project_dir%/public/images/promotion'
+
+            inject_on_load: false
+            delete_on_remove: false
+
+
+        publicity:
+            uri_prefix: /images/publicity
+            upload_destination: '%kernel.project_dir%/public/images/publicity'
+
+            inject_on_load: false
+            delete_on_remove: false

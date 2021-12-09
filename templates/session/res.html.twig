@@ -1,0 +1,11 @@
+<div>
+    {% for res in res %}
+        <div>
+            <p>
+                Pour la session  : <span style="color: red;"> {{ res.nomSession }}</span>
+                On a : <span style="color: red;">{{res.Nbr}} </span>Abonnements
+                Ce qui implique <span style="color: red;">{{(res.Nbr * 100)/total }} %</span>  de la totalité
+            </p>
+        </div>
+    {% endfor %}
+</div>

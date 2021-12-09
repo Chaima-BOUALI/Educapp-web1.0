@@ -1,0 +1,23 @@
+<link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.nomParticipation) }} <br>
+    {{ form_widget(form.nomParticipation) }}
+    <br><br>
+    {{ form_label(form.objet) }} <br>
+    {{ form_widget(form.objet) }}
+    <br><br>
+    {{ form_label(form.contenuParticipation) }}<br>
+    {{ form_widget(form.contenuParticipation ) }}
+    <br>
+    {{ form_label(form.imageFile) }}<br>
+    {{ form_widget(form.imageFile) }}
+
+    <br>
+    <!-- {{ form_label(form.decision) }}<br>
+    {{ form_widget(form.decision ) }} -->
+    <br>
+    <button class="B-Button">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

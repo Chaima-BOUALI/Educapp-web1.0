@@ -8,6 +8,14 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Entity\Session;
+use App\Entity\Ressource;
+use App\Entity\Publicity;
+use App\Entity\Candidat;
+use App\Entity\CompteRendu;
+use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -36,32 +44,61 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    // /**
-    //  * @return User[] Returns an array of User objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?User
+    public function Get_Pourcentage()
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(A)as Nbr,S.nomSession FROM App\Entity\Abonnement A  ,App\Entity\Session S Where A.session=S.id GROUP BY A.session');
+        return $query->getResult();
     }
-    */
+
+    public function Get_Total()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(A)as total FROM App\Entity\Abonnement A ');
+        return $query->getSingleScalarResult();
+    }
+
+    public function Get_Pourcentage2()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(R)as Nbr,S.nomSession FROM App\Entity\Ressource R  ,App\Entity\Session S Where R.session=S.id GROUP BY R.session');
+        return $query->getResult();
+    }
+
+    public function Get_Total2()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(R)as total FROM App\Entity\Ressource R ');
+        return $query->getSingleScalarResult();
+    }
+
+    public function Get_Pourcentage5()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(C)as Nbr,S.nomSession FROM App\Entity\Candidat C  ,App\Entity\Session S Where C.session=S.id GROUP BY C.session');
+        return $query->getResult();
+    }
+
+    public function Get_Total5()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(C)as total FROM App\Entity\Candidat C');
+        return $query->getSingleScalarResult();
+    }
+
+    public function Get_Pourcentage3()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(P)as Nbr,S.nomSession FROM App\Entity\Publicity P  ,App\Entity\Session S Where P.session=S.id GROUP BY P.session');
+        return $query->getResult();
+    }
+
+    public function Get_Total3()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(P)as total FROM App\Entity\Publicity P');
+        return $query->getSingleScalarResult();
+    }
+
 }

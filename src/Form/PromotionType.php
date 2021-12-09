@@ -6,6 +6,7 @@ use App\Entity\Promotion;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PromotionType extends AbstractType
 {
@@ -13,6 +14,7 @@ class PromotionType extends AbstractType
     {
         $builder
             ->add('nomPromotion')
+            ->add('imageFile',VichImageType::class)
             ->add('session')
         ;
     }

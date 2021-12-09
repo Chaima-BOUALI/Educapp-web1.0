@@ -2,20 +2,21 @@
 
 namespace App\Controller;
 
-use App\Entity\Publicity;
 use App\Form\PublicityType;
-use Knp\Component\Pager\PaginatorInterface;
+use App\Entity\Session;
+use App\Entity\Publicity;
+use App\Repository\UserRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\PublicityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Query;
-use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-
+use App\Form\SessionType;
 
 /**
  * @Route("/publicity")
@@ -107,18 +108,25 @@ class PublicityController extends AbstractController
 
         return $this->redirectToRoute('publicity_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/prc", name="publicity_prc", methods={"GET","POST"})
+     *
+     */
+    public function prc (UserRepository $repo): Response
+    {
+        $res = $repo->Get_Pourcentage3();
+        $total= $repo->Get_Total3();
+        return $this->render('publicity/res.html.twig', [
+            'res' => $res, 'total' => $total
+        ]);
+    }
     /**
      * @Route("/pub/acc", name="pub_acc")
      */
-    public function acc(PaginatorInterface $paginator , Request $request): Response
+    public function acc( Request $request): Response
     {
-       /* $publicities =$paginator->paginate(
-            $publicities = $this->getDoctrine()
-                ->getRepository(Publicity::class)
-            ->findAllWithPagination(),
-            $request->query->getInt('page',1),
-            4
-        );*/
+
 
         $publicities = $this->getDoctrine()
             ->getRepository(Publicity::class)
@@ -128,23 +136,5 @@ class PublicityController extends AbstractController
             'publicities' => $publicities,
         ]);
     }
-    /**
-     * @param PaginatorInterface $paginator
-     * @param Request $request
-     * @return Response
-     * @Route("/Affiche",name="Affichage")
-     */
-    public function Affiche(PaginatorInterface $paginator,Request $request){
 
-
-        $repo=$this->getDoctrine()->getRepository(Publicity::class);
-        $publicities=$paginator->paginate(
-            $repo->findAll(),
-            $request->query->getInt('page', 1),
-            6
-        );
-        return $this->render('publicity/acc.html.twig',
-            ['publicities'=>$publicities, 'paginator'=>$paginator
-            ]);
-    }
 }

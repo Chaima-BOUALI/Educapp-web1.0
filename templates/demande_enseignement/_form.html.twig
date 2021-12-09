@@ -1,7 +1,11 @@
-{{ form_start(form) }}
-<center>
-    {{ form_widget(form) }}
-    <br>
-    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
-</center>
-{{ form_end(form) }}
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.nomDemande) }} <br>
+    {{ form_widget(form.nomDemande) }}
+    <br><br><br>
+    {{ form_label(form.descriptionDemande) }} <br>
+    {{ form_widget(form.descriptionDemande) }}
+    <br><br><br>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }} </div>

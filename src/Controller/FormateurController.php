@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Repository\UserRepository;
 
 /**
  * @Route("/formateur")
@@ -100,5 +101,16 @@ class FormateurController extends AbstractController
         }
 
         return $this->redirectToRoute('formateur_index', [], Response::HTTP_SEE_OTHER);
+    }
+    /**
+     * @Route("/prc", name="formateur_prc", methods={"GET","POST"})
+     */
+    public function prc(UserRepository $repo): Response
+    {
+        $res = $repo->Get_Pourcentage4();
+        $total= $repo->Get_Total4();
+        return $this->render('formateur/res.html.twig', [
+            'res' => $res, 'total' => $total
+        ]);
     }
 }

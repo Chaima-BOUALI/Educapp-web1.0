@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AFFICHER L'HISTORIQUE DES PARTICIPATIONS{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <h1>Afficher l'historique des participations</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ participation.id }}</td>
+        </tr>
+        <tr>
+            <th>NomParticipation</th>
+            <td>{{ participation.nomParticipation }}</td>
+        </tr>
+        <tr>
+            <th>Objet</th>
+            <td>{{ participation.objet }}</td>
+        </tr>
+        <tr>
+            <th>ContenuParticipation</th>
+            <td>{{ participation.contenuParticipation }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="A-Button" type="submit">
+
+        <a href="{{ path('participation_index') }}">Afficher l'historique des participations</a>
+    </button>
+    <button class="A-Button" type="submit">
+
+        <a href="{{ path('participation_edit', {'id': participation.id}) }}">Modifier votre participation</a>
+    </button>
+    {{ include('participation/_delete_form.html.twig') }}
+{% endblock %}

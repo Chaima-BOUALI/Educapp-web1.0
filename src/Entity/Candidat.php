@@ -2,7 +2,12 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 
 /**
  * Candidat
@@ -62,6 +67,21 @@ class Candidat
      * @ORM\Column(name="date_de_naissance", type="date", nullable=false)
      */
     private $dateDeNaissance;
+
+    /**
+     * * @ORM\ManyToOne(targetEntity="Session")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="session_id", referencedColumnName="id")
+     * })
+     */
+    private $Session;
+
+
+
+    public function __construct()
+    {
+        $this->Session = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -136,6 +156,18 @@ class Candidat
     public function setDateDeNaissance(\DateTimeInterface $dateDeNaissance): self
     {
         $this->dateDeNaissance = $dateDeNaissance;
+
+        return $this;
+    }
+
+    public function getSession(): ?Session
+    {
+        return $this->session;
+    }
+
+    public function setSession(?Session $session): self
+    {
+        $this->session = $session;
 
         return $this;
     }

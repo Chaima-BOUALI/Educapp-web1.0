@@ -10,6 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Entity\Session;
+use App\Entity\User;
+use App\Repository\UserRepository;
+use App\Form\SessionType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
+
 
 /**
  * @Route("/candidat")
@@ -89,6 +96,21 @@ class CandidatController extends AbstractController
     }
 
     /**
+     * @Route("/prc", name="candidat_prc", methods={"GET","POST"})
+     * @ParamConverter
+     *  @IsGranted ("ROLE_ADMIN")
+
+     */
+    public function prc(UserRepository $repository): Response
+    {
+        $res = $repository->Get_Pourcentage5();
+        $total= $repository->Get_Total5();
+        return $this->render('candidat/res.html.twig', [
+            'res' => $res, 'total' => $total
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="candidat_delete", methods={"POST"})
      * @IsGranted ("ROLE_ADMIN")
      */
@@ -103,22 +125,5 @@ class CandidatController extends AbstractController
         return $this->redirectToRoute('candidat_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    /**
-     * @Route("/moyenneage", name="candidat_moyenneage")
-     * @IsGranted ("ROLE_ADMIN")
-     */
-    function cacul_moyenneage($nombre,$total,$pourcentage)
-    {
-        $candidats = $this->getDoctrine()
-            ->getRepository(Candidat::class)
-            ->cacul_moyenneage();
-        $nombre_candidat = "SELECT * FROM candidat where ((candidat.dateDeNaissance) - (2021-12-31) )>1";
-        $total_candidat = "SELECT * FROM candidat";
-        $valeur_p = 100;
-        echo cacul_moyenneage($nombre_candidat, $total_candidat, $valeur_p) . " %";
-        $resultat = ($nombre / $total) * $pourcentage;
 
-        return $this->render('candidat/index.html.twig', ['resultat'=> $resultat]);
-
-    }
 }

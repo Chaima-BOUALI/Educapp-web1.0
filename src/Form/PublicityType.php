@@ -18,6 +18,7 @@ class PublicityType extends AbstractType
             ->add('endDate')
             ->add('descriptionPub')
             ->add('session')
+            ->add('imageFile',VichImageType::class)
         ;
     }
 

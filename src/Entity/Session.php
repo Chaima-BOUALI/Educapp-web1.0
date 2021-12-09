@@ -2,8 +2,17 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use App\Entity\Publicity;
+use App\Entity\Compte\Rendu;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Session
@@ -69,6 +78,24 @@ class Session
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="Session")
+     */
+    private $candidats;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Formateur::class, mappedBy="Session")
+     */
+    private $formateurs;
+
+    public function __construct()
+    {
+        $this->candidats = new ArrayCollection();
+        $this->formateurs = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -164,4 +191,65 @@ class Session
     {
         return(string)$this->getNomSession();
     }
+
+    /**
+     * @return Collection|Candidat[]
+     */
+    public function getCandidats(): Collection
+    {
+        return $this->candidats;
+    }
+
+    public function addCandidat(Candidat $candidat): self
+    {
+        if (!$this->candidats->contains($candidat)) {
+            $this->candidats[] = $candidat;
+            $candidat->setSession($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidat(Candidat $candidat): self
+    {
+        if ($this->candidats->removeElement($candidat)) {
+            // set the owning side to null (unless already changed)
+            if ($candidat->getSession() === $this) {
+                $candidat->setSession(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Formateur[]
+     */
+    public function getFormateurs(): Collection
+    {
+        return $this->formateurs;
+    }
+
+    public function addFormateur(Formateur $formateur): self
+    {
+        if (!$this->formateurs->contains($formateur)) {
+            $this->formateurs[] = $formateur;
+            $formateur->setSession($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFormateur(Formateur $formateur): self
+    {
+        if ($this->formateurs->removeElement($formateur)) {
+            // set the owning side to null (unless already changed)
+            if ($formateur->getSession() === $this) {
+                $formateur->setSession(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

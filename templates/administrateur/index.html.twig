@@ -3,12 +3,9 @@
 {% block title %}ESPACE ADMINISTRATEUR{% endblock %}
 {% block body %}
 <center>
-
     <h1 CLASS="border border-dark rounded text-white n-2 p-2 center bg-info"> CONSULTER TOUTES LES GESTIONS</h1>
     <div class="row no-gutters">
-
-
-    <div class="col-6 col-lg-3 p-1 ">
+        <div class="col-6 col-lg-3 p-1 ">
         <div class="card nb-5">
             <div class="row no-gutters aline-items-center p-2">
                 <img src="{{ asset('front-office/images/session.jpg') }}" class="card-img" >
@@ -18,6 +15,7 @@
             <div class="card-body">
                 <h4 class="card-title border border-dark rounded text-white n-1 p-1 center ">
                     <a href="{{ path('session_index') }}"> Sessions</a>
+
                 </h4>
             </div>
         </center>
@@ -170,4 +168,4 @@
     </div>
 
 </center>
-{% endblock %}
+    {% endblock %}

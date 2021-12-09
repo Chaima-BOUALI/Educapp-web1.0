@@ -3,9 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Promotion
+ *@Vich\Uploadable
+
  *
  * @ORM\Table(name="promotion", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_C11D7DD1613FECDF", columns={"session_id"})})
  * @ORM\Entity
@@ -39,67 +46,119 @@ class Promotion
     private $session;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Pourcentage;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $image;
 
-    public function getId(): ?int
+
+    /**
+     * @Vich\UploadableField(mapping="promotion", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
     public function getNomPromotion(): ?string
     {
         return $this->nomPromotion;
     }
 
-    public function setNomPromotion(string $nomPromotion): self
+    /**
+     * @param string $nomPromotion
+     */
+    public function setNomPromotion(string $nomPromotion): void
     {
         $this->nomPromotion = $nomPromotion;
-
-        return $this;
     }
 
-    public function getSession(): ?Session
+    /**
+     * @return \Session
+     */
+    public function getSession(): ?\Session
     {
         return $this->session;
     }
 
-    public function setSession(?Session $session): self
+    /**
+     * @param \Session $session
+     */
+    public function setSession(\Session $session): void
     {
         $this->session = $session;
-
-        return $this;
     }
 
-    public function getPourcentage(): ?string
+    /**
+     * @return mixed
+     */
+    public function getPourcentage()
     {
         return $this->Pourcentage;
     }
 
-    public function setPourcentage(string $Pourcentage): self
+    /**
+     * @param mixed $Pourcentage
+     */
+    public function setPourcentage($Pourcentage): void
     {
         $this->Pourcentage = $Pourcentage;
-
-        return $this;
     }
 
-    public function getImage(): ?string
+    /**
+     * @return mixed
+     */
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
     {
         $this->image = $image;
-
-        return $this;
     }
+
+    /**
+     * @return File
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile(File $imageFile): void
+    {
+        $this->imageFile = $imageFile;
+    }
+
+
 
 
 }

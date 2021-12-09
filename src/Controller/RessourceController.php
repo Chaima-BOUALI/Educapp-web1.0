@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ressource;
+use App\Entity\TypeRessource;
 use App\Form\RessourceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Repository\UserRepository;
+use App\Form\SessionType;
 
 /**
  * @Route("/ressource")
@@ -54,6 +57,17 @@ class RessourceController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    /**
+     * @Route("/prc", name="ressource_prc", methods={"GET","POST"})
+     */
+    public function prc(UserRepository $repo): Response
+    {
+        $res = $repo->Get_Pourcentage2();
+        $total= $repo->Get_Total2();
+        return $this->render('ressource/res.html.twig', [
+            'res' => $res, 'total' => $total
+        ]);
+    }
 
     /**
      * @Route("/{id}", name="ressource_show", methods={"GET"})
@@ -90,11 +104,10 @@ class RessourceController extends AbstractController
     /**
      * @Route("/{id}", name="ressource_delete", methods={"POST"})
      * @IsGranted ("ROLE_USER")
-    
      */
     public function delete(Request $request, Ressource $ressource): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$ressource->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $ressource->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($ressource);
             $entityManager->flush();
@@ -102,4 +115,7 @@ class RessourceController extends AbstractController
 
         return $this->redirectToRoute('ressource_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
 }

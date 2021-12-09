@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * DemandeEnseignement
@@ -63,6 +65,7 @@ class DemandeEnseignement
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
 
     public function getId(): ?int
     {
