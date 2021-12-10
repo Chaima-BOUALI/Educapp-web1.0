@@ -79,21 +79,13 @@ class Session
      */
     private $image;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="Session")
-     */
-    private $candidats;
 
     /**
-     * @ORM\OneToMany(targetEntity=Formateur::class, mappedBy="Session")
+     * @ORM\Column(type="float", nullable=true)
      */
-    private $formateurs;
+    private $Prix;
 
-    public function __construct()
-    {
-        $this->candidats = new ArrayCollection();
-        $this->formateurs = new ArrayCollection();
-    }
+
 
 
 
@@ -192,62 +184,16 @@ class Session
         return(string)$this->getNomSession();
     }
 
-    /**
-     * @return Collection|Candidat[]
-     */
-    public function getCandidats(): Collection
+    
+
+    public function getPrix(): ?float
     {
-        return $this->candidats;
+        return $this->Prix;
     }
 
-    public function addCandidat(Candidat $candidat): self
+    public function setPrix(?float $Prix): self
     {
-        if (!$this->candidats->contains($candidat)) {
-            $this->candidats[] = $candidat;
-            $candidat->setSession($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCandidat(Candidat $candidat): self
-    {
-        if ($this->candidats->removeElement($candidat)) {
-            // set the owning side to null (unless already changed)
-            if ($candidat->getSession() === $this) {
-                $candidat->setSession(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Formateur[]
-     */
-    public function getFormateurs(): Collection
-    {
-        return $this->formateurs;
-    }
-
-    public function addFormateur(Formateur $formateur): self
-    {
-        if (!$this->formateurs->contains($formateur)) {
-            $this->formateurs[] = $formateur;
-            $formateur->setSession($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFormateur(Formateur $formateur): self
-    {
-        if ($this->formateurs->removeElement($formateur)) {
-            // set the owning side to null (unless already changed)
-            if ($formateur->getSession() === $this) {
-                $formateur->setSession(null);
-            }
-        }
+        $this->Prix = $Prix;
 
         return $this;
     }

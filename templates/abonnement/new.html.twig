@@ -3,12 +3,13 @@
 {% block title %}Nouveau Abonnement{% endblock %}
 
 {% block body %}
-    <center>
+
     <h1>Ajouter un nouvel Abonnement</h1>
 
     {{ include('abonnement/_form.html.twig') }}
+    <br>
     <button class="btn-outline-primary" type="submit">
         <a href="{{ path('abonnement_index') }}">Afficher la liste des abonnements</a>
     </button>
-    </center>
+
 {% endblock %}

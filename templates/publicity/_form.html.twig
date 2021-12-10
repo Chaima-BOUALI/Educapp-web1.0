@@ -1,7 +1,26 @@
-{{ form_start(form) }}
-<center>
-    {{ form_widget(form) }}
+<link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.nomPublicity) }} <br>
+    {{ form_widget(form.nomPublicity) }}
+    <br><br>
+    {{ form_label(form.startDate) }} <br>
+    {{ form_widget(form.startDate) }}
+    <br><br>
+    {{ form_label(form.endDate) }} <br>
+    {{ form_widget(form.endDate) }}
+    <br><br>
+    {{ form_label(form.descriptionPub) }}<br>
+    {{ form_widget(form.descriptionPub ) }}
     <br>
-    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
-</center>
+    {{ form_label(form.session) }}<br>
+    {{ form_widget(form.session) }}
+
+    <br>
+    {{ form_label(form.imageFile) }}<br>
+    {{ form_widget(form.imageFile ) }}
+    <br>
+    <button class="B-Button">{{ button_label|default('Save') }}</button>
+
 {{ form_end(form) }}

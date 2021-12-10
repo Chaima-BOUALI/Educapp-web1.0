@@ -16,6 +16,9 @@ class AbonnementType extends AbstractType
             ->add('dateAbonnement')
             ->add('session')
             ->add('user')
+            ->add('Prix')
+
+            
         ;
     }
 

@@ -5,6 +5,8 @@ use App\Entity\Abonnement;
 use App\Entity\Session;
 use App\Entity\Publicity;
 use App\Entity\Promotion;
+use App\Entity\User;
+use App\Entity\Reclamation;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -135,6 +137,7 @@ class AppFixtures extends Fixture
             for ($i = 0; $i < $rand; $i++) {
                 $Session = new Session();
                 $Session->setNomSession($faker->text(20));
+                $Session->setPrix($faker->randomFloat('500', '150'));
                 $Session->setStartDate($faker->dateTime($format = 'Y-m-d'));
                 $Session->setEndDate($faker->dateTime($format = 'Y-m-d'));
                 $Session->setDescriptionSession($faker->text(200));
@@ -145,5 +148,9 @@ class AppFixtures extends Fixture
             }
         }
         $manager->flush();
+        
+
+
     }
+    
 }

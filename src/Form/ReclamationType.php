@@ -17,6 +17,7 @@ class ReclamationType extends AbstractType
             ->add('contenuReclamation')
             ->add('dateReclamation')
             ->add('user')
+            ->add('image')
         ;
     }
 

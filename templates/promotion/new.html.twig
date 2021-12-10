@@ -6,7 +6,8 @@
     <h1>Ajouter une nouvelle promotion</h1>
 
     {{ include('promotion/_form.html.twig') }}
-<button type="submit">
-    <a href="{{ path('promotion_index') }}">Afficher l'historique des promotions</a>
-</button>
+    <br>
+    <button type="submit">
+        <a href="{{ path('promotion_index') }}">Afficher l'historique des promotions</a>
+    </button>
 {% endblock %}

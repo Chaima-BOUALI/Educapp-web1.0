@@ -60,8 +60,13 @@
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.password }}</td>
-                <td>
-                    <button class="Add-Button" type="submit">
+
+                <td>{{ user.Nom }}</td>
+                <td>{{ user.Prenom }}</td>
+                <td>{{ user.Sexe }}</td>
+                <td>{{ user.Adresse }}</td>
+            </tr> <tr>
+               <td>     <button class="Add-Button" type="submit">
                     <a href="{{ path('user_show', {'id': user.id}) }}">Afficher</a>
                     </button>
                     <button class="Add-Button" type="submit">

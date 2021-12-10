@@ -19,6 +19,11 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('Nom')
+            ->add('Prenom')
+            ->add('DateDeNaissance')
+            ->add('Adresse')
+            ->add('Sexe')
 
             ->add('email',EmailType::class)
 
@@ -49,6 +54,7 @@ class RegistrationFormType extends AbstractType
 
                 ],
             ])
+
         ;
     }
 

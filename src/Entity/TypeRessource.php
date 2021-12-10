@@ -43,9 +43,7 @@ class TypeRessource
 
     /**
      * @var \DateTime
-     * @Assert\Date
-     * @var string A "Y-m-d" formatted value
-     *
+     * 
      * @ORM\Column(name="date_ressource", type="date", nullable=false)
      */
     private $dateRessource;

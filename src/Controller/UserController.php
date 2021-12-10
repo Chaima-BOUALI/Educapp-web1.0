@@ -113,4 +113,18 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/user/profile", name="user_profile")
+     */
+    public function acc(): Response
+    {
+        $profiles = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findAll();
+
+        return $this->render('user/profile.html.twig', [
+            'profiles' => $profiles,
+        ]);
+    }
+
 }

@@ -66,9 +66,14 @@ class Formateur
     private $dateDeNaissance;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Session::class, inversedBy="formateurs")
+     * @var \Session
+     *
+     * @ORM\ManyToOne(targetEntity="Session")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="session_id", referencedColumnName="id")
+     * })
      */
-    private $Session;
+    private $session;
 
 
 
@@ -154,16 +159,20 @@ class Formateur
         return $this;
     }
 
-    public function getSession(): ?Session
+    /**
+     * @return \Session
+     */
+    public function getSession(): ?\Session
     {
-        return $this->Session;
+        return $this->session;
     }
 
-    public function setSession(?Session $Session): self
+    /**
+     * @param \Session $session
+     */
+    public function setSession(\Session $session): void
     {
-        $this->Session = $Session;
-
-        return $this;
+        $this->session = $session;
     }
 
 }

@@ -1,7 +1,27 @@
-{{ form_start(form) }}
-<center>
-    {{ form_widget(form) }}
+<link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.nomFormateur) }} <br>
+    {{ form_widget(form.nomFormateur) }}
+    <br><br>
+    {{ form_label(form.prenomFormateur) }} <br>
+    {{ form_widget(form.prenomFormateur) }}
+    <br><br>
+    {{ form_label(form.email) }}<br>
+    {{ form_widget(form.email ) }}
     <br>
-    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
-</center>
+    {{ form_label(form.numeroFormateur) }}<br>
+    {{ form_widget(form.numeroFormateur) }}
+
+    <br>
+    {{ form_label(form.sexe) }}<br>
+    {{ form_widget(form.sexe ) }}
+    <br>
+    {{ form_label(form.dateDeNaissance) }}<br>
+    {{ form_widget(form.dateDeNaissance ) }}
+
+    <br>
+    <button class="B-Button">{{ button_label|default('Save') }}</button>
+
 {{ form_end(form) }}

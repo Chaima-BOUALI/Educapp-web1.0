@@ -37,19 +37,9 @@ class DemandeEnseignement
      */
     private $descriptionDemande;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="decision", type="boolean", nullable=false)
-     */
-    private $decision;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="url_participation", type="string", length=255, nullable=false)
-     */
-    private $urlParticipation;
+
+
 
     /**
      * @var \User

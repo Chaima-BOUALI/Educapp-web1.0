@@ -25,27 +25,54 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('auth/css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('auth/css/main.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('front-office/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('front-office/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('front-office/favicon-16x16.png') }}">
+    <link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
     <!--===============================================================================================-->
 </head>
+
+<!-- <form role="search" method="get" class="login100-form validate-form p-b-33 p-t-5" action="#">
+    <label>
+        <span class="hide-content">Search for:</span>
+        <input type="search" class="s-header__search-field" placeholder="Type Your Keywords" value="" name="s" title="Search for:" autocomplete="off">
+    </label>
+    <input type="submit" class="s-header__search-submit" value="Search">
+</form> -->
+
+
+
 
 <div class="limiter">
     <div class="container-login100" style="background-image: url('{{ asset('auth/images/back.jpg') }}');">
         <div class="wrap-login100 p-t-30 p-b-50">
 					<span class="login100-form-title p-b-41">
-                        <center>INSCRIVEZ VOUS!</center>
+
 				</span>
-            <form class="login100-form validate-form p-b-33 p-t-5">
-<div class="container">
-<center>
-            {% block body %}{% endblock %}
-</center>
-</div>
+
+            <center><h1 style="color:#fff;"> INSCRIVEZ VOUS!</h1></center>
+            <br>
+            <br>
+
+            <div class="aaa">
+                <center>
+                    <form id="mc-form" class="group" novalidate="true">
+
+                        <label for="mc-email" class="subscribe-message"></label>
+
+                    </form>
+
+                    {% block body %}
+                    {% endblock %}
+                </center>
+            </div>
 
 
-            </form>
         </div>
     </div>
 </div>
+
 
 <!--===============================================================================================-->
 <script src="{{ asset('auth/vendor/jquery/jquery-3.2.1.min.js') }}"></script>

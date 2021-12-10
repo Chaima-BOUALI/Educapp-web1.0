@@ -41,6 +41,31 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Nom;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Prenom;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $DateDeNaissance;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $Adresse;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Sexe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -136,4 +161,65 @@ class User implements UserInterface
     {
         return(string)$this->getUsername();
     }
+
+    public function getNom(): ?string
+    {
+        return $this->Nom;
+    }
+
+    public function setNom(?string $Nom): self
+    {
+        $this->Nom = $Nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->Prenom;
+    }
+
+    public function setPrenom(?string $Prenom): self
+    {
+        $this->Prenom = $Prenom;
+
+        return $this;
+    }
+
+    public function getDateDeNaissance(): ?\DateTimeInterface
+    {
+        return $this->DateDeNaissance;
+    }
+
+    public function setDateDeNaissance(?\DateTimeInterface $DateDeNaissance): self
+    {
+        $this->DateDeNaissance = $DateDeNaissance;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->Adresse;
+    }
+
+    public function setAdresse(?string $Adresse): self
+    {
+        $this->Adresse = $Adresse;
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->Sexe;
+    }
+
+    public function setSexe(?string $Sexe): self
+    {
+        $this->Sexe = $Sexe;
+
+        return $this;
+    }
+
 }

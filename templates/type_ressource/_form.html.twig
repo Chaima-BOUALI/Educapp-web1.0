@@ -1,4 +1,19 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.nomTypeRessource) }} <br>
+    {{ form_widget(form.nomTypeRessource) }}
+    <br><br>
+    {{ form_label(form.type) }} <br>
+    {{ form_widget(form.type) }}
+    <br><br>
+    {{ form_label(form.dateRessource) }}<br>
+    {{ form_widget(form.dateRessource ) }}
+    <br>
+
+
+    <br>
+    <button class="A-Button">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+</div>

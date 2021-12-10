@@ -1,7 +1,23 @@
-{{ form_start(form) }}
-<center>
-    {{ form_widget(form) }}
+<link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.nomPromotion) }} <br>
+    {{ form_widget(form.nomPromotion) }}
+    <br><br>
+    {{ form_label(form.session) }} <br>
+    {{ form_widget(form.session) }}
+    <br><br>
+    {{ form_label(form.Pourcentage) }}<br>
+    {{ form_widget(form.Pourcentage ) }}
     <br>
-    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
-</center>
+    {{ form_label(form.image) }}<br>
+    {{ form_widget(form.image) }}
+
+    <br>
+    {{ form_label(form.imageFile) }}<br>
+    {{ form_widget(form.imageFile ) }}
+    <br> <br>
+    <button class="B-Button">{{ button_label|default('Save') }}</button>
+
 {{ form_end(form) }}

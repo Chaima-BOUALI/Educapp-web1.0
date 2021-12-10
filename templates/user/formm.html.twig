@@ -1,0 +1,28 @@
+<link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.Nom) }} <br>
+    {{ form_widget(form.Nom) }}
+    <br><br>
+    {{ form_label(form.Prenom) }} <br>
+    {{ form_widget(form.Prenom) }}
+    <br><br>
+    {{ form_label(form.Sexe) }}<br>
+    {{ form_widget(form.Sexe ) }}
+    <br>
+    {{ form_label(form.Adresse) }}<br>
+    {{ form_widget(form.Adresse) }}
+    <br><br>
+    {{ form_label(form.email) }}<br>
+    {{ form_widget(form.email ) }}
+    <br>
+    <br><br>
+    {{ form_label(form.DateDeNaissance) }}<br>
+    {{ form_widget(form.DateDeNaissance ) }}
+    <br>
+    <!-- {{ form_label(form.plainPassword) }}<br>
+    {{ form_widget(form.plainPassword ) }} -->
+    <br>
+    <button class="B-Button">{{ button_label|default('Enregistrer') }}</button>
+
+{{ form_end(form) }}

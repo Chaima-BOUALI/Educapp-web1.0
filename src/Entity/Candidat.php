@@ -69,12 +69,14 @@ class Candidat
     private $dateDeNaissance;
 
     /**
-     * * @ORM\ManyToOne(targetEntity="Session")
+     * @var \Session
+     *
+     * @ORM\ManyToOne(targetEntity="Session")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="session_id", referencedColumnName="id")
      * })
      */
-    private $Session;
+    private $session;
 
 
 
@@ -160,16 +162,20 @@ class Candidat
         return $this;
     }
 
-    public function getSession(): ?Session
+    /**
+     * @return \Session
+     */
+    public function getSession(): ?\Session
     {
         return $this->session;
     }
 
-    public function setSession(?Session $session): self
+    /**
+     * @param \Session $session
+     */
+    public function setSession(\Session $session): void
     {
         $this->session = $session;
-
-        return $this;
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Session;
+use phpDocumentor\Reflection\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,11 +14,14 @@ class SessionType extends AbstractType
     {
         $builder
             ->add('nomSession')
+            ->add('StartDate')
             ->add('endDate')
             ->add('descriptionSession')
             ->add('placesDisponibles')
             ->add('urlImage')
-            ->add('StartDate')
+
+            ->add('image')
+
         ;
     }
 

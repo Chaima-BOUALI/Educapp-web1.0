@@ -62,6 +62,11 @@ class Abonnement
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $Prix;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -129,6 +134,18 @@ class Abonnement
     public function __toString()
     {
         return(string)$this->getTypeAbonnement();
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->Prix;
+    }
+
+    public function setPrix(?float $Prix): self
+    {
+        $this->Prix = $Prix;
+
+        return $this;
     }
 
 }

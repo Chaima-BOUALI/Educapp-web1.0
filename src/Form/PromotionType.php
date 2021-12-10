@@ -16,6 +16,8 @@ class PromotionType extends AbstractType
             ->add('nomPromotion')
             ->add('imageFile',VichImageType::class)
             ->add('session')
+            ->add('image')
+            ->add('Pourcentage')
         ;
     }
 

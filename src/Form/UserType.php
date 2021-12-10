@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -17,12 +18,19 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('name', TextType::class)
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'Mot de passe'],
                 'second_options' => ['label' => 'Confirmer Mot de passe']
             ])
+            ->add('Nom')
+            ->add('Prenom')
+            ->add('DateDeNaissance')
+            ->add('Adresse')
+            ->add('Sexe')
+            ->add('isVerified')
+            ->add('roles')
+
         ;
     }
 

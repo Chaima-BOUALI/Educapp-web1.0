@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Repository;
+
+use App\Entity\Abonnement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -10,24 +12,23 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Abonnement[]    findAll()
  * @method Abonnement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AbonnementRepository  extends ServiceEntityRepository
+class AbonnementRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Abonnement::class);
     }
 
-
     // /**
-    //  * @return Publicity[] Returns an array of Promotion objects
+    //  * @return Products[] Returns an array of Product objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
+            ->orderBy('p.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -36,10 +37,10 @@ class AbonnementRepository  extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Publicity
+    public function findOneBySomeField($value): ?Products
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

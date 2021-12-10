@@ -4,13 +4,14 @@
 {% block title %}Ajouter Publicité{% endblock %}
 
 {% block body %}
-    <center>
+
     <h1>Ajouter une nouvelle publicité </h1>
 
     {{ include('publicity/_form.html.twig') }}
+    <br>
     <button class="btn-outline-primary" type="submit">
         <a href="{{ path('publicity_index') }}">Afficher la liste des publicités </a>
     </button>
 
-    </center>
+
 {% endblock %}

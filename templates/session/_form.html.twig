@@ -1,7 +1,45 @@
-{{ form_start(form) }}
-<center>
-    {{ form_widget(form) }}
+<link href="{{ asset('back-office/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+<div class="eb3ed"> {{ form_start(form) }}
+
+    {{ form_label(form.nomSession) }} <br>
+    {{ form_widget(form.nomSession) }}
+    <br><br>
+    {{ form_label(form.StartDate) }} <br>
+    {{ form_widget(form.StartDate) }}
+    <br><br>
+    {{ form_label(form.endDate) }}<br>
+    {{ form_widget(form.endDate ) }}
     <br>
-    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
-</center>
-{{ form_end(form) }}
+    {{ form_label(form.descriptionSession) }}<br>
+    {{ form_widget(form.descriptionSession) }}
+    <br>
+    <br>
+    {{ form_label(form.placesDisponibles) }}
+    <br>
+    {{ form_widget(form.placesDisponibles) }}
+
+    <br>
+    {{ form_label(form.urlImage) }}
+    <br>
+    {{ form_widget(form.urlImage) }}
+
+
+    <br>
+    {{ form_label(form.image) }}
+    <br>
+    {{ form_widget(form.image) }}
+
+
+
+
+
+    <br>
+
+
+
+    <br>
+    <br>
+    <button class="A-Button">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+</div>
