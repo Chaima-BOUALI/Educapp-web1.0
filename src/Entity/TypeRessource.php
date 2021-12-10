@@ -43,7 +43,7 @@ class TypeRessource
 
     /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="date_ressource", type="date", nullable=false)
      */
     private $dateRessource;

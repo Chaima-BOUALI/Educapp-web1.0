@@ -33,7 +33,7 @@ class DemandeEnseignement
     /**
      * @var string
      *
-     * @ORM\Column(name="description_demande", type="text", length=0, nullable=false)
+     * @ORM\Column(name="description_demande", type="text", nullable=false)
      */
     private $descriptionDemande;
 

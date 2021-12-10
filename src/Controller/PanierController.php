@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Entity\Abonnement;
 use App\Controller\AbonnementController;
 use App\Repository\AbonnementRepository;
+use App\Form\AbonnementType;
+
+
 class PanierController extends AbstractController
 {
     /**
@@ -32,11 +35,13 @@ class PanierController extends AbstractController
             $total += $abonnement->getPrix() * $quantite;
         }
 
-        return $this->render('panier/index.html.twig', compact("dataPanier", "total"));
+        return $this->render('panier/index.html.twig', [
+            'total'=>$total,
+        ]);
     }
 
     /**
-     * @Route("/add/{id}", name="add")
+     * @Route("/add/{id}", name="panier_add")
      */
     public function add(Abonnement $abonnement, SessionInterface $session)
     {
@@ -44,20 +49,26 @@ class PanierController extends AbstractController
         $panier = $session->get("panier", []);
         $id = $abonnement->getId();
 
-        if(!empty($panier[$id])){
+        if (!empty($panier[$id])) {
             $panier[$id]++;
-        }else{
+        } else {
             $panier[$id] = 1;
+            // On sauvegarde dans la session
+            $session->set("panier", $panier);
+
+            return $this->redirectToRoute("panier_index");
         }
 
-        // On sauvegarde dans la session
-        $session->set("panier", $panier);
 
-        return $this->redirectToRoute("panier_index");
+        $form =$this->createForm(AbonnementType::class, $abonnement);
+        return $this->render('panier/index.html.twig', [
+        "abonnement" => $abonnement,
+        'form' => $form-> createView(),
+    ]);
     }
 
     /**
-     * @Route("/remove/{id}", name="remove")
+     * @Route("/remove/{id}", name="panier_remove")
      */
     public function remove(Abonnement $abonnement, SessionInterface $session)
     {
@@ -80,7 +91,7 @@ class PanierController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="delete")
+     * @Route("/delete/{id}", name="panier_delete")
      */
     public function delete(Abonnement $abonnement, SessionInterface $session)
     {

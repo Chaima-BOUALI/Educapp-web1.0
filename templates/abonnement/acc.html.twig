@@ -56,27 +56,28 @@
         <center>
             {% block titre%} <h1 CLASS="border border-dark rounded text-white n-2 p-2 center bg-info"> BIENVENUE A EDUCAPP</h1> {% endblock %}
             <div class="row no-gutters">
-                {% for a in abonnements %}
+
+                {% for abonnement in abonnements %}
 
                     <div class="col-12 col-lg-6 p-1">
 
                         <div class="card nb-3">
                             <div class="row no-gutters aline-items-center p-2">
                                 <div class="col-12 col-nd-4">
-                                    <img src="{{ asset('front-office/images/abn1.jpg' ~ a.image) }}" class="card-img" >
+                                    <img src="{{ asset('front-office/images/abn1.jpg' ~ abonnement.image) }}" class="card-img" >
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
                                     </div>
                                     <center>
                                         <h4 class="card-title border border-dark rounded text-white n-2 p-2 center bg-info"> Abonnement
-                                            <h6> {{ a.typeabonnement}} </h6>
+                                            <h6> {{ abonnement.typeabonnement}} </h6>
 
                                         </h4>
-                                        {{ include('abonnement/_form.html.twig') }}
-                                        <button class="btn-outline-primary" type="submit">
-                                            <a href="{{ path('panier_index') }}">Panier</a>
-                                        </button>
+                                        <a href="{{path("panier_add", {id: abonnement.id})}}" class="btn btn-success">
+                                            <i class="bi bi-cart-plus"></i> Ajouter
+                                        </a>
+
 
                                     </center>
                                 </div>

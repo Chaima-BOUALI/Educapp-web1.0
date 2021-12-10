@@ -23,7 +23,7 @@
 
     </table>
 
-        {% for element in dataPanier %}
+        {% for element in abonnement %}
             <tr>
                 <td>{{ element.abonnement.type_abonnement }}</td>
                 <td class="text-end">{{ element.abonnement.prix }} €</td>
@@ -50,7 +50,7 @@
         <tfoot>
         <tr>
             <td colspan="3">Total</td>
-            <td class="text-end">{{ total }} dt </td>
+
 
         </tr>
         </tfoot>

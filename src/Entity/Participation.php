@@ -12,10 +12,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Participation
- * @Vich\Uploadable
+ * 
  *
  * @ORM\Table(name="participation", indexes={@ORM\Index(name="IDX_AB55E24F155D8F51", columns={"formateur_id"})})
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Participation
 {
