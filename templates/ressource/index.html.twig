@@ -29,7 +29,18 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">BASE DE DONNEES DES SESSIONS</h6>
             </div>
+            <tr>
+                <button class="A-Button" type="submit">
+                    <a href="{{ path('ressource_new') }}">Ajouter une ressource </a>
+                </button>
 
+            </tr>
+    <tr>
+        <button class="A-Button" type="submit">
+            <a href="{{ path('ressource_prc') }}">Afficher le pourcentage Des ressources dans chaque session </a>
+        </button>
+
+    </tr>
 
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -46,188 +57,51 @@
             </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>01</td>
-            <td>TP1</td>
-            <td>www.ressources.tn</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        <tr>
-            <td>02</td>
-            <td>VIDEO1</td>
-            <td>www.ressources.tn</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        <tr>
-            <td>03</td>
-            <td>Quiz1</td>
-            <td>www.ressources.tn</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        <tr>
-            <td>04</td>
-            <td>TP2</td>
-            <td>www.ressources.tn</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        <tr>
-            <td>05</td>
-            <td>Quiz2</td>
-            <td>www.ressources.tn</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        <tr>
-            <td>06</td>
-            <td>VIDEO2</td>
-            <td>www.ressources.tn</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('ressource_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-
-        </tr>
-        </tbody>
-    </table>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    </div>
-
-    </div>
-
-    </div>
-    <!-- /.container-fluid -->
-
-    </div>
-    <!-- End of Main Content -->
-
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; EDUCAPP</span>
-            </div>
-        </div>
-    </footer>
-    <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    </body>
         {% for ressource in ressources %}
             <tr>
                 <td>{{ ressource.id }}</td>
                 <td>{{ ressource.nomRessource }}</td>
                 <td>{{ ressource.urlRessource }}</td>
+
                 <td>
-                    <button type="submit">
-
-                    <a href="{{ path('ressource_show', {'id': ressource.id}) }}">Afficher la liste des ressources </a>
+                    <button class="A-Button" type="submit">
+                        <a href="{{ path('publicity_show', {'id': ressource.id}) }}">Afficher</a>
                     </button>
-                    <button type="submit">
-
-                    <a href="{{ path('ressource_edit', {'id': ressource.id}) }}">Modifier une ressource de la session</a>
+                    <button class="A-Button" type="submit">
+                        <a href="{{ path('publicity_edit', {'id': ressource.id}) }}">Modifier</a>
                     </button>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    </div>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; EDUCAPP</span>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End of Footer -->
 
 
-    {% block Javascript %}
+                    <!-- End of Content Wrapper -->
 
+
+                    <!-- End of Page Wrapper -->
+
+                    </tr>
+
+                    </tbody>
+                </table>
+    {% block javascripts %}
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -239,34 +113,16 @@
         <script src="js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
-        <script src="js/demo/datatables-demo.js"></script>
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
-                </div>
-            </div>
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
         </div>
+        </div>
+        </div>
+        </div>
+        </table>
     {% endblock %}
 {% endblock %}
+

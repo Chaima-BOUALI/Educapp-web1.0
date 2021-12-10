@@ -35,7 +35,12 @@
                 <h6 class="m-0 font-weight-bold text-primary">BASE DE DONNEES DES PROMOTIONS </h6>
             </div>
 
+    <tr>
+        <button class="A-Button" type="submit">
+            <a href="{{ path('publicity_new') }}">Ajouter une publicité </a>
+        </button>
 
+    </tr>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <table class="table">
@@ -43,165 +48,56 @@
             <tr>
                 <th>Id</th>
                 <th>NomPromotion</th>
+                <th>Pourcentage</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>01</td>
-            <td>Promotion session python</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-        </tr>
-        <tr>
-            <td>02</td>
-            <td>Promotion session symfony</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-        </tr>
-        <tr>
-            <td>03</td>
-            <td>Promotion session java</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-        </tr>
-        <tr>
-            <td>03</td>
-            <td>Promotion session JavaScript</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-        </tr>
-        <tr>
-            <td>04</td>
-            <td>Promotion français de communication</td>
-
-            <td> <form action="" method="post">
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Ajouter </a>
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Modifier</a>
-
-                    </button>
-                    <button type="submit">
-                        <a href="{{ path('promotion_new') }}">Supprimer</a>
-
-                    </button>
-                </form></td>
-        </tr>
-
-        </tbody>
-    </table>
-                </table>
-
-            </div>
-        </div>
-    </div>
-    </div>
-
-    </div>
-
-    </div>
-
-    </div>
-    <!-- /.container-fluid -->
-
-    </div>
-    <!-- End of Main Content -->
-
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; EDUCAPP</span>
-            </div>
-        </div>
-    </footer>
-    <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
         {% for promotion in promotions %}
             <tr>
                 <td>{{ promotion.id }}</td>
-                <td>{{ promotion.nomPromotion }}</td>
+                <td>{{ promotion.nompromotion }}</td>
+                <td>{{ promotion.Pourcentage }}</td>
+
                 <td>
-                    <button type="submit">
-
-                    <a href="{{ path('promotion_show', {'id': promotion.id}) }}">Afficher l'historique des promotions</a>
+                    <button class="A-Button" type="submit">
+                        <a href="{{ path('promotion_show', {'id': promotion.id}) }}">Afficher</a>
                     </button>
-                    <button type="submit">
-
-                    <a href="{{ path('promotion_edit', {'id': promotion.id}) }}">Modofier une promotion</a>
+                    <button class="A-Button" type="submit">
+                        <a href="{{ path('promotion_edit', {'id': promotion.id}) }}">Modifier</a>
                     </button>
                 </td>
             </tr>
-
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    </body>
+                    <!-- End of Main Content -->
 
-    </div>
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; EDUCAPP</span>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End of Footer -->
 
 
-    {% block Javascript %}
+                    <!-- End of Content Wrapper -->
 
+
+                    <!-- End of Page Wrapper -->
+
+                    </tr>
+
+                    </tbody>
+                </table>
+    {% block javascripts %}
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -213,37 +109,15 @@
         <script src="js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
-        <script src="js/demo/datatables-demo.js"></script>
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
-                </div>
-            </div>
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
         </div>
+        </div>
+        </div>
+        </div>
+        </table>
     {% endblock %}
 {% endblock %}
-
-
-
